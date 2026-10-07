@@ -40,19 +40,19 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 25%;
+  top: 27%;
   bottom: 0;
   z-index: -1;
   /* Tracks the content group. Must still reach pure white BEFORE the
      backdrop's bottom edge at 74%, or the photo cuts off against a
-     not-quite-white field and seams: 56% of this box sits at ~67% of the
-     hero, leaving 7% of margin. */
+     not-quite-white field and seams: 58% of this box sits at ~69% of the
+     hero, leaving 5% of margin. */
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.5) 32%,
-    rgba(255, 255, 255, 0.88) 50%,
-    #fff 56%,
+    rgba(255, 255, 255, 0.88) 52%,
+    #fff 58%,
     #fff 100%
   );
 }
@@ -160,7 +160,7 @@
 /* ---------- body ---------- */
 .deck__body {
   margin-top: auto;
-  padding: 0 1.5rem 2rem;
+  padding: 0 1.5rem 1rem;
   text-align: center;
 }
 
