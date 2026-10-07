@@ -223,3 +223,36 @@
     transition: none !important;
   }
 }
+
+/* ---------- scroll cue ---------- */
+/* A chevron, not the live site's mouse glyph: this design is touch-only, so a
+   scroll-wheel affordance refers to an input the user does not have. */
+.scrollcue {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.scrollcue__arrow {
+  width: 1.5rem;
+  height: 0.875rem;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.5;
+  animation: scrollcue-bob 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollcue-bob {
+  0%,
+  100% {
+    transform: translateY(-3px);
+    opacity: 0.32;
+  }
+  50% {
+    transform: translateY(3px);
+    opacity: 0.7;
+  }
+}

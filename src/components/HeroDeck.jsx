@@ -1,4 +1,5 @@
 import NavBar from './NavBar.jsx'
+import ScrollCue from './ScrollCue.jsx'
 import { HERO_BACKDROP } from '../data/experiences.js'
 
 export default function HeroDeck({ menuOpen, onToggleMenu }) {
@@ -32,6 +33,8 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
             Plan My Trip
           </a>
         </div>
+
+        <ScrollCue />
       </div>
     </header>
   )
