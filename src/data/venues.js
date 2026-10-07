@@ -128,4 +128,40 @@ export const CATEGORIES = [
       },
     ],
   },
+  {
+    id: 'nearby',
+    title: 'Experiences Nearby',
+    venues: [
+      {
+        id: 'dubai-fountain',
+        name: 'Dubai Fountain',
+        blurb:
+          'The world’s tallest dancing fountain, every 30 minutes from 6pm to 11pm.',
+        src: img('dubai-fountain.jpg'),
+        tint: 'linear-gradient(150deg, #2f6f9e, #10243a)',
+      },
+      {
+        id: 'dubai-opera',
+        name: 'Dubai Opera',
+        blurb:
+          'World-class performances, plus behind-the-scenes tours of the building.',
+        src: img('dubai-opera.jpg'),
+        tint: 'linear-gradient(150deg, #9a7246, #30211a)',
+      },
+      {
+        id: 'sky-views',
+        name: 'Sky Views Observatory',
+        blurb: 'A glass slide, an observatory, and the Edge Walk above Downtown.',
+        src: img('sky-views.jpg'),
+        tint: 'linear-gradient(150deg, #6f98bd, #223243)',
+      },
+      {
+        id: 'dubai-mall',
+        name: 'Dubai Mall',
+        blurb: 'Shopping, dining and entertainment at the foot of the tower.',
+        src: img('dubai-mall.jpg'),
+        tint: 'linear-gradient(150deg, #8a7f6b, #2e2a24)',
+      },
+    ],
+  },
 ]
