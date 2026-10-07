@@ -25,9 +25,11 @@ This redesign answers with an **experience-led hero**. Three decisions follow.
    outlined, so the browsing path and the booking path are both one tap away without
    competing for the same emphasis.
 
-The top navigation is carried over unchanged from the current mobile site — wordmark left,
-menu right — because it already works on a phone and changing it would spend the user's
-familiarity for nothing.
+The top navigation is carried over unchanged from the current mobile site — logo, language
+switcher, `BOOK TICKETS`, hamburger — because it already works on a phone and changing it
+would spend the user's familiarity for nothing. The tiles are not an invented taxonomy
+either: they are three of the site's own five EXPERIENCES categories, promoted from two taps
+deep inside the hamburger onto the first screen.
 
 ## Research Documentation
 
@@ -45,11 +47,34 @@ Source material for every figure shown in the UI (all values live in `src/data/t
 | Opening hours | 10:00—20:00, last entry 19:00 | [Platinumlist](https://dubai.platinumlist.net/event-tickets/at-the-top) |
 | Indicative prices | from $51 / $108 / $155 USD | [Klook](https://www.klook.com/en-US/activity/2228-burj-khalifa-observation-deck-dubai/), [Viator](https://www.viator.com/tours/Dubai/The-Burj-Khalifa-At-the-top-124-125th-floor/d828-242747P9) |
 
-**Known gap — the original site was never captured directly.** `burjkhalifa.ae` returns
-HTTP 403 to automated requests (bot protection), so the critique in the Design Argument is
-reasoned from the mobile-commerce patterns the site is known to use, not from a logged
-teardown. Capturing annotated screenshots of the live mobile site by hand is the next
-research task, and should land in `claude/docs/` before this argument is defended.
+**Teardown of the live site (captured in-browser, 2026-10-06).** `burjkhalifa.ae` returns
+HTTP 403 to automated requests, so the site was inspected by driving a real browser session.
+
+*Information architecture.* Four top-level sections — THE TOWER, EXPERIENCES, PROJECTIONS,
+OPEN CALL. EXPERIENCES holds five categories: Observation Decks, Luxury Stays, Experiences
+Nearby, Fine Dining, Wellness.
+
+*Mobile navigation bar.* Four elements sit outside the collapsed menu, in order: brand logo,
+language switcher (EN / العربية / Русский / 简体中文), a `BOOK TICKETS` button, and the
+hamburger. The redesigned nav reproduces this.
+
+*Brand tokens, read off the live `.book-ticket` button.* Gold `#CFA76D`, text `#373534`,
+4 px radius, uppercase, 700 weight, 1.6 px letter-spacing. The logo is served from
+`/wp-content/uploads/2024/08/BK-logo-en-02-cropped.svg`.
+
+*Finding that supports the redesign.* The three experience tiles in the new hero — Fine
+Dining, Luxury Stays, Wellness — are three of the site's own five EXPERIENCES categories. The
+redesign does not invent an IA; it promotes a category list that currently sits two taps deep
+inside a hamburger up to the first screen.
+
+*Finding that supports the critique.* The landing page opens with a scroll-driven intro
+animation running well over thirty seconds before any content or navigation is usable, over a
+blank white field. On a phone that is the entire first impression.
+
+**Remaining gap.** The capture was made at a 1728 px viewport — the browser window could not
+be resized below it, so the *mobile rendering* has still not been seen directly. The nav
+findings come from the DOM, which is viewport-independent, so they hold; the mobile *layout*
+is not yet evidenced. Annotated phone-width screenshots should still land in `claude/docs/`.
 
 ## Platform Rationale
 
@@ -69,6 +94,7 @@ and needs no backend because nothing here actually transacts.
 | 2 | 2026-10-06 | Chose Vite + React, SCAD class project | Scaffolded repo to the house pattern (deploy.yml, CC0, `base: '/Landing-Page/'`, `claude/`) | Accepted | Matches PersonsRequired / ReactiveSandbox |
 | 3 | 2026-10-06 | "Redesign of the Burj Khalifa mobile site, mobile only" | Proposed scroll-as-ascent as the organising concept | Accepted | The one idea the whole layout hangs from |
 | 4 | 2026-10-06 | — | Tried to fetch `burjkhalifa.ae` for a teardown | Blocked — 403 | Logged as a research gap rather than papered over |
+| 8 | 2026-10-06 | "Let me drive your Chrome to it" | Captured the live site in a real browser session; got the IA, mobile nav order, and brand tokens | Nav rebuilt to match | `BOOK TICKETS` had been missing; tile choices confirmed against the real IA |
 | 5 | 2026-10-06 | — | Built hero, stat band, tier list, visit panel, booking bar | Accepted | Facts sourced and cited, not recalled |
 | 6 | 2026-10-06 | "I had my own ideas for the redesign" + reference image; keep the current nav; observation-deck hero fading to white; three experience tiles; "Burj Khalifa" heading; About / Plan My Trip buttons | Rebuilt the hero to the supplied reference | **Human direction replaced the AI concept** | Scroll-as-ascent dropped; old components parked, not deleted |
 | 7 | 2026-10-06 | — | Wrote the hero subtext | Accepted, pending review | Only copy on the page not directed by the brief |
