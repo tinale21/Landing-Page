@@ -34,5 +34,7 @@ export const EXPERIENCES = [
 
 export const HERO_BACKDROP = {
   src: `${base}images/hero-tower.jpg`,
-  tint: 'linear-gradient(175deg, #4b9bd4 0%, #8cc3e4 52%, #cfe3ee 100%)',
+  // Doubles as the sky strip above the photo and the fallback if it fails to
+  // load, so the top stops are sampled from the image's own top rows (#6087d2).
+  tint: 'linear-gradient(180deg, #5d84d0 0%, #6087d2 12%, #8ab9e0 58%, #cfe3ee 100%)',
 }

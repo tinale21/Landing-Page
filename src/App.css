@@ -11,6 +11,9 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 74%;
+  /* The sky is extended inside the image itself, so the spire clears the nav
+     without a second layer to colour-match (that approach seamed). Back to a
+     single cover layer anchored top. */
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;

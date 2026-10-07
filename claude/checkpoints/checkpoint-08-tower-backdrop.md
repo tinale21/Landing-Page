@@ -32,3 +32,37 @@ backdrops needed the fade to *conceal* a crop; this one is improved by it.
 The spire tip lands in the nav row, threading between the wordmark and the globe. Reads fine
 and arguably ties the nav into the image. Raised with the designer; pushing the backdrop down
 slightly is the fix if she wants clear sky behind the nav.
+
+---
+
+## Follow-up — push the backdrop down
+
+**Direction:** "Yes push it down" (clear sky behind the nav).
+
+### First attempt, wrong
+
+Held the photo at `background-size: auto 90%` anchored bottom, and filled the ~10% strip it
+vacated with a CSS gradient colour-matched to the sky. Sampled the image's top rows to get
+`#6087d2` and built the gradient from it.
+
+**It seamed anyway.** The sample averaged the sky across the *full* image width, but the
+backdrop crops horizontally — so the average included darker left and right edges that are
+never on screen. The strip was measurably correct and visibly wrong.
+
+### Second attempt, correct
+
+Extended the sky **inside the image**: the canvas grows 20% at the top, and each column is
+continued upward from the average of its own top three pixels, with a 7% darkening toward the
+very top to follow the sky's natural gradient.
+
+Because every column extends from itself, horizontal variation carries through and there is
+no edge to colour-match. The seam cannot occur rather than being tuned until it stops showing.
+CSS reverted to a single `cover` layer anchored top.
+
+1299×1600 → 1299×1920. 204 kB → 212 kB.
+
+### Method note
+
+Both attempts "worked" at the first glance. The difference only appeared on zooming the
+junction. Matching a colour across a hard edge is fragile — continuing the data across it is
+not.
