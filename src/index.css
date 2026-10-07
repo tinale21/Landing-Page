@@ -1,0 +1,84 @@
+:root {
+  /* Desert dusk — the palette the tower is actually seen against. */
+  --night: #0a0f1f;
+  --night-2: #121a33;
+  --night-3: #1b2444;
+  --line: rgba(232, 217, 181, 0.14);
+  --gold: #c9a24b;
+  --gold-lit: #e8c46a;
+  --sand: #e8d9b5;
+  --ink: #f6f2e8;
+  --muted: rgba(246, 242, 232, 0.6);
+  --muted-dim: rgba(246, 242, 232, 0.42);
+
+  --ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --display: 'Cormorant Garamond', Georgia, serif;
+
+  --bar-h: 4.5rem;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ui);
+  background: var(--night);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The brief is mobile-only, so on a wide screen we present the phone column
+   rather than stretching a layout that was never designed to stretch. */
+.frame {
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 60% at 50% 0%, #1b2444 0%, var(--night) 62%);
+}
+
+.phone {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--night);
+  padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom, 0px));
+  overflow-x: hidden;
+}
+
+@media (min-width: 30rem) {
+  .phone {
+    box-shadow: 0 0 0 1px var(--line), 0 2rem 5rem rgba(0, 0, 0, 0.6);
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--gold-lit);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
