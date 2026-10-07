@@ -77,9 +77,9 @@ export default function VenueCarousel({ venues, label }) {
                 </span>
                 <h4 className="vcard__name">{v.name}</h4>
                 <p className="vcard__blurb">{v.blurb}</p>
-                <button type="button" className="vcard__cta">
+                <a className="vcard__cta" href={`#/venue/${v.id}`}>
                   Explore More
-                </button>
+                </a>
               </div>
             </article>
           </li>

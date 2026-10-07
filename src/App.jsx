@@ -1,28 +1,45 @@
 import { useState } from 'react'
 import HeroDeck from './components/HeroDeck.jsx'
 import ExperienceSection from './components/ExperienceSection.jsx'
+import VenueDetail from './components/VenueDetail.jsx'
+import { useHashRoute } from './hooks/useHashRoute.js'
+import { CATEGORIES } from './data/venues.js'
 import './App.css'
 
-/**
- * Section 1 of the redesign. Remaining sections are being specified one at a
- * time; the earlier scroll-as-ascent components (AltitudeRail, StatBand,
- * TierList, VisitPanel, BookingBar, TowerSilhouette) are kept in
- * src/components/ but are not mounted.
- */
+/** Flat lookup so a route id resolves to its venue and its category name. */
+function findVenue(id) {
+  for (const cat of CATEGORIES) {
+    const venue = cat.venues.find((v) => v.id === id)
+    if (venue) return { venue, category: cat.title }
+  }
+  return null
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { venueId } = useHashRoute()
+  const hit = venueId ? findVenue(venueId) : null
 
   return (
     <div className="frame">
       <div className="phone">
-        <HeroDeck
-          menuOpen={menuOpen}
-          onToggleMenu={() => setMenuOpen((v) => !v)}
-        />
-
-        <main>
-          <ExperienceSection />
-        </main>
+        {hit ? (
+          <VenueDetail
+            venue={hit.venue}
+            category={hit.category}
+            onBack={() => window.history.back()}
+          />
+        ) : (
+          <>
+            <HeroDeck
+              menuOpen={menuOpen}
+              onToggleMenu={() => setMenuOpen((v) => !v)}
+            />
+            <main>
+              <ExperienceSection />
+            </main>
+          </>
+        )}
       </div>
     </div>
   )
