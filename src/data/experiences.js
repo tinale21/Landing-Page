@@ -33,6 +33,6 @@ export const EXPERIENCES = [
 ]
 
 export const HERO_BACKDROP = {
-  src: `${base}images/observation-deck.jpg`,
-  tint: 'linear-gradient(170deg, #b9c6d6 0%, #8fa0b5 38%, #c6b49a 72%, #e6d8c6 100%)',
+  src: `${base}images/hero-tower.jpg`,
+  tint: 'linear-gradient(175deg, #4b9bd4 0%, #8cc3e4 52%, #cfe3ee 100%)',
 }
