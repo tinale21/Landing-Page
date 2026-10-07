@@ -164,63 +164,6 @@
   text-align: center;
 }
 
-/* ---------- experience tiles ---------- */
-/* Four across, sharing the row evenly: each flexes to the same width and the
-   square is held by aspect-ratio rather than a fixed px size, so the row fits
-   any phone width without a magic number per breakpoint. */
-.tiles {
-  list-style: none;
-  margin: 0 0 1.75rem;
-  padding: 0;
-  display: flex;
-  align-items: stretch;
-  gap: 0.5rem;
-}
-
-.tile {
-  flex: 1 1 0;
-  min-width: 0;
-}
-
-.tile__btn {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  aspect-ratio: 1;
-  padding: 0;
-  border: 0;
-  border-radius: 0.875rem;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 0.5rem 1.25rem rgba(21, 17, 13, 0.28);
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.18s ease;
-}
-
-.tile__btn:active {
-  transform: scale(0.97);
-}
-
-.tile__scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.18) 72%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.5));
-}
-
-.tile__title {
-  position: relative;
-  padding: 0 0.25rem;
-  font-family: var(--display);
-  font-size: 0.6875rem;
-  line-height: 1.2;
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85), 0 0 14px rgba(0, 0, 0, 0.5);
-}
-
 /* ---------- headline + actions ---------- */
 .deck__title {
   font-family: var(--display);

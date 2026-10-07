@@ -1,10 +1,10 @@
 import NavBar from './NavBar.jsx'
-import { EXPERIENCES, HERO_BACKDROP } from '../data/experiences.js'
+import { HERO_BACKDROP } from '../data/experiences.js'
 
 export default function HeroDeck({ menuOpen, onToggleMenu }) {
   return (
     <header className="deck" id="top">
-      {/* Backdrop: observation-deck photo, faded out into the page below. */}
+      {/* Backdrop: Downtown Dubai aerial, faded out into the page below. */}
       <div
         className="deck__backdrop"
         style={{ backgroundImage: `url("${HERO_BACKDROP.src}"), ${HERO_BACKDROP.tint}` }}
@@ -17,21 +17,6 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
       <NavBar open={menuOpen} onToggle={onToggleMenu} />
 
       <div className="deck__body">
-        <ul className="tiles" role="list">
-          {EXPERIENCES.map((x) => (
-            <li key={x.id} className="tile">
-              <button
-                type="button"
-                className="tile__btn"
-                style={{ backgroundImage: `url("${x.src}"), ${x.tint}` }}
-              >
-                <span className="tile__scrim" aria-hidden="true" />
-                <span className="tile__title">{x.title}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-
         <h1 className="deck__title">Burj Khalifa</h1>
 
         <p className="deck__sub">
