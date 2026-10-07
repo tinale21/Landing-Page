@@ -17,8 +17,6 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
       <NavBar open={menuOpen} onToggle={onToggleMenu} />
 
       <div className="deck__body">
-        <p className="deck__kicker">Experiences</p>
-
         <ul className="tiles" role="list">
           {EXPERIENCES.map((x) => (
             <li
@@ -40,7 +38,7 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
         <h1 className="deck__title">Burj Khalifa</h1>
 
         <p className="deck__sub">
-          Dine, stay, and unwind inside the world’s tallest building — then take
+          Dine, stay, and unwind inside the world’s tallest building, then take
           the lift to the top. Every Burj Khalifa experience, booked in one place.
         </p>
 
