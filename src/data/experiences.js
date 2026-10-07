@@ -33,8 +33,8 @@ export const EXPERIENCES = [
 ]
 
 export const HERO_BACKDROP = {
-  src: `${base}images/hero-tower.jpg`,
+  src: `${base}images/hero-downtown.jpg`,
   // Doubles as the sky strip above the photo and the fallback if it fails to
   // load, so the top stops are sampled from the image's own top rows (#6087d2).
-  tint: 'linear-gradient(180deg, #5d84d0 0%, #6087d2 12%, #8ab9e0 58%, #cfe3ee 100%)',
+  tint: 'linear-gradient(180deg, #2a6f9e 0%, #57a0c6 42%, #b9cfd8 78%, #d9d2c4 100%)',
 }

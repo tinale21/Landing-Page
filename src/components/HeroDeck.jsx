@@ -9,7 +9,7 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
         className="deck__backdrop"
         style={{ backgroundImage: `url("${HERO_BACKDROP.src}"), ${HERO_BACKDROP.tint}` }}
         role="img"
-        aria-label="The Burj Khalifa rising above the Dubai Fountain lake"
+        aria-label="The Burj Khalifa above Downtown Dubai at dusk"
       />
       <div className="deck__topscrim" aria-hidden="true" />
       <div className="deck__fade" aria-hidden="true" />
