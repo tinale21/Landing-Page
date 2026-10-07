@@ -32,3 +32,20 @@ None. Worth noting the method though: the fix was to make the gradient finish *b
 thing it is hiding ends, not to nudge the two numbers until the seam stopped being obvious.
 Aligning the two edges exactly would have left a one-pixel seam that reappears at other
 viewport heights.
+
+---
+
+## Follow-up — the fade moved up too
+
+**Direction:** "Move that white fade up too then."
+
+Raising the content group had left the fade sitting low relative to it, so the tiles were
+still landing on visible deck floor and passers-by. `.deck__fade` now starts at 22% (was 28%)
+and reaches `#fff` at ~64% of the hero (was ~71%).
+
+Side benefit: the tile labels read better than before, because the backdrop behind them is now
+clean white rather than a busy crowd scene. The scrim strengthening from CP04 is still doing
+work for the top two-thirds of each tile, but the bottom edges no longer fight the photo.
+
+The CP06 constraint holds — pure white is still reached well before the backdrop's 74% edge,
+so no seam.

@@ -37,19 +37,19 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 28%;
+  top: 22%;
   bottom: 0;
   z-index: -1;
-  /* Must reach pure white BEFORE the backdrop's bottom edge (74%), or the
-     photo cuts off against a not-quite-white field and leaves a seam.
-     60% of this box sits at 71% of the hero, so the edge lands inside the
-     solid-white run. */
+  /* Fade starts and finishes higher, tracking the lifted content group.
+     Still must reach pure white BEFORE the backdrop's bottom edge (74%) or
+     the photo cuts off against a not-quite-white field and leaves a seam:
+     54% of this box sits at ~64% of the hero, comfortably inside it. */
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.5) 34%,
-    rgba(255, 255, 255, 0.88) 52%,
-    #fff 60%,
+    rgba(255, 255, 255, 0.5) 30%,
+    rgba(255, 255, 255, 0.88) 46%,
+    #fff 54%,
     #fff 100%
   );
 }
