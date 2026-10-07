@@ -11,6 +11,7 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
         role="img"
         aria-label="View from the Burj Khalifa observation deck"
       />
+      <div className="deck__topscrim" aria-hidden="true" />
       <div className="deck__fade" aria-hidden="true" />
 
       <NavBar open={menuOpen} onToggle={onToggleMenu} />
