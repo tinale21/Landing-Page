@@ -8,28 +8,26 @@
 
 ## Design Argument
 
-The official Burj Khalifa site is a desktop site that has been made to fit a phone. The
-consequence is that the one thing a visitor actually arrives to do — work out how high they
-can get and what that costs — is spread across a nav, a landing page, and a separate
-ticketing flow. On a 390 px screen that becomes a lot of scrolling before the user reaches a
-decision.
+The official Burj Khalifa site is a desktop site made to fit a phone. The consequence is that
+a visitor arrives wanting to know *what they can do here* and instead meets a nav, a landing
+page, and a separate ticketing flow. On a 390 px screen that is a lot of scrolling before
+reaching a decision.
 
-This redesign makes a single argument: **on mobile, the page should behave like the
-building.** Three decisions follow from it.
+This redesign answers with an **experience-led hero**. Three decisions follow.
 
-1. **Scroll is ascent.** A fixed rail fills as you scroll and the booking bar reads out your
-   current altitude, climbing from 0 m to 828 m and landing exactly at the spire as the page
-   ends. The scrollbar stops being chrome and becomes the subject.
-2. **Tiers are ordered by height, not by price.** At The Top (452 m) → SKY (555 m) →
-   Sky Lounge (585 m). The list and the building agree, so "more expensive" is legible as
-   "higher up" without a comparison table — which is the component that fails worst on a
-   phone.
-3. **The primary action never leaves the thumb.** A persistent bottom bar carries the chosen
-   deck and its price into view at all times. Choosing a tier anywhere on the page updates it
-   immediately, so the user is never hunting for the way forward.
+1. **Lead with the view, not the building.** A full-bleed photograph from the observation
+   deck fades into white, so the page opens on what a visitor actually comes for. The fade —
+   rather than a hard crop — lets the image hand off to type without a visible seam.
+2. **Surface the three experiences immediately.** Fine Dining, Luxury Stays, and Wellness sit
+   as tappable tiles over the fade, with the middle tile forward and larger. The tower is not
+   only an observation deck, and the hero says so before the user scrolls once.
+3. **Two exits, clearly ranked.** *About Burj Khalifa* is filled and *Plan My Trip* is
+   outlined, so the browsing path and the booking path are both one tap away without
+   competing for the same emphasis.
 
-The tower artwork is an original SVG massing study rather than a photograph — it stays sharp
-at any pixel density, costs nothing to load, and avoids using imagery we have no licence to.
+The top navigation is carried over unchanged from the current mobile site — wordmark left,
+menu right — because it already works on a phone and changing it would spend the user's
+familiarity for nothing.
 
 ## Research Documentation
 
@@ -72,6 +70,8 @@ and needs no backend because nothing here actually transacts.
 | 3 | 2026-10-06 | "Redesign of the Burj Khalifa mobile site, mobile only" | Proposed scroll-as-ascent as the organising concept | Accepted | The one idea the whole layout hangs from |
 | 4 | 2026-10-06 | — | Tried to fetch `burjkhalifa.ae` for a teardown | Blocked — 403 | Logged as a research gap rather than papered over |
 | 5 | 2026-10-06 | — | Built hero, stat band, tier list, visit panel, booking bar | Accepted | Facts sourced and cited, not recalled |
+| 6 | 2026-10-06 | "I had my own ideas for the redesign" + reference image; keep the current nav; observation-deck hero fading to white; three experience tiles; "Burj Khalifa" heading; About / Plan My Trip buttons | Rebuilt the hero to the supplied reference | **Human direction replaced the AI concept** | Scroll-as-ascent dropped; old components parked, not deleted |
+| 7 | 2026-10-06 | — | Wrote the hero subtext | Accepted, pending review | Only copy on the page not directed by the brief |
 
 ## Records of Resistance
 
@@ -82,6 +82,15 @@ The brief was explicitly "I am only designing for mobile." Rather than build a r
 layout that happens to look acceptable narrow, the page is capped at 26 rem and *presented*
 as a phone column on wide screens. Designing for one width let the ascent metaphor use fixed
 positioning without having to survive a desktop reflow it was never meant for.
+
+**CP02 — The human concept replaced the AI concept.**
+The first build organised the whole page around a scroll-as-ascent metaphor the AI proposed:
+scroll position mapped to altitude, tiers ordered by height. It was internally coherent, and
+it was not the designer's idea. When the direction arrived — a reference layout, an
+experience-led hero, the existing nav kept — the metaphor was dropped rather than defended or
+half-merged into the new layout. The old components are parked in `src/components/`, unmounted,
+so the decision stays reversible. An AI concept surviving into a submitted project only because
+it was built first is not a design decision.
 
 *Further entries to be added as the design is reviewed and defended.*
 
@@ -109,29 +118,26 @@ positioning without having to survive a desktop reflow it was never meant for.
 
 ```mermaid
 flowchart TB
-  subgraph src["Source"]
-    data["data/tower.js<br/>facts · tiers · visit info"]
-    hook["hooks/useScrollAscent<br/>scroll → 0..828 m"]
+  subgraph data["Content"]
+    exp["data/experiences.js<br/>3 tiles + backdrop"]
+    tower["data/tower.js<br/>facts · tiers · visit info"]
   end
 
-  subgraph surf["Surfaces"]
-    hero["Hero<br/>828 m · 163 floors"]
-    stats["StatBand"]
-    tiers["TierList<br/>ordered by altitude"]
-    visit["VisitPanel"]
+  subgraph hero["Hero — built"]
+    nav["NavBar<br/>carried over from live site"]
+    deck["HeroDeck<br/>backdrop → fade → tiles"]
+    cta["About · Plan My Trip"]
   end
 
-  subgraph persist["Always on screen"]
-    rail["AltitudeRail<br/>fills with scroll"]
-    bar["BookingBar<br/>selection + live metres"]
+  subgraph parked["Parked — not mounted"]
+    old["AltitudeRail · StatBand<br/>TierList · VisitPanel<br/>BookingBar · TowerSilhouette"]
   end
 
-  data --> hero & stats & tiers & visit & bar
-  hook --> rail & bar & hero
-  tiers -- "tap selects" --> bar
-  bar -- "scrolls to" --> tiers
+  exp --> deck
+  nav --> deck --> cta
+  tower -.-> old
 
-  src -.-> build["vite build"] --> pages["GitHub Pages"]
+  hero -.-> build["vite build"] --> pages["GitHub Pages"]
 ```
 
 ## User Testing Evidence
