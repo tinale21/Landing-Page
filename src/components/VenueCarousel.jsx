@@ -62,12 +62,19 @@ export default function VenueCarousel({ venues, label }) {
             >
               <span className="vcard__scrim" aria-hidden="true" />
               <div className="vcard__body">
-                {v.closed && (
-                  <span className="vcard__status">
-                    <i aria-hidden="true" />
-                    Temporarily closed
-                  </span>
-                )}
+                {/* Always rendered so every card's name, blurb and button sit
+                    at the same height; hidden (not removed) when the venue is
+                    open, which reserves the exact space rather than guessing
+                    at an equivalent padding. */}
+                <span
+                  className={`vcard__status${
+                    v.closed ? '' : ' vcard__status--ghost'
+                  }`}
+                  aria-hidden={v.closed ? undefined : 'true'}
+                >
+                  <i aria-hidden="true" />
+                  Temporarily closed
+                </span>
                 <h4 className="vcard__name">{v.name}</h4>
                 <p className="vcard__blurb">{v.blurb}</p>
                 <button type="button" className="vcard__cta">

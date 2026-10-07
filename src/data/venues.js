@@ -28,6 +28,7 @@ export const CATEGORIES = [
         closed: true,
         name: 'Armani / Ristorante',
         blurb: 'One Michelin-starred Italian, with signature tasting menus.',
+        src: img('ristorante.jpg'),
         tint: 'linear-gradient(150deg, #6d5636, #2e2214)',
       },
       {
@@ -35,6 +36,7 @@ export const CATEGORIES = [
         closed: true,
         name: 'Armani / Amal',
         blurb: 'Indian cuisine prepared tableside, overlooking the Dubai Fountain.',
+        src: img('amal.jpg'),
         tint: 'linear-gradient(150deg, #8a5a3c, #37201a)',
       },
       {
@@ -42,6 +44,7 @@ export const CATEGORIES = [
         closed: true,
         name: 'Armani / Hashi',
         blurb: 'Japanese, with fish flown in daily from around the world.',
+        src: img('hashi.jpg'),
         tint: 'linear-gradient(150deg, #5b6b63, #1f2a26)',
       },
       {
@@ -49,6 +52,7 @@ export const CATEGORIES = [
         closed: true,
         name: 'Armani / Mediterraneo',
         blurb: 'Mediterranean plates from early morning until late, kept casual.',
+        src: img('mediterraneo.jpg'),
         tint: 'linear-gradient(150deg, #7f8a6f, #2b3328)',
       },
       {
@@ -56,6 +60,7 @@ export const CATEGORIES = [
         closed: true,
         name: 'Armani / Deli',
         blurb: 'An Italian deli with a menu that changes daily.',
+        src: img('deli.jpg'),
         tint: 'linear-gradient(150deg, #937a4e, #352815)',
       },
     ],
@@ -77,6 +82,7 @@ export const CATEGORIES = [
         closed: true,
         name: 'Armani Residences',
         blurb: '144 suites across Levels 9 to 16, furnished by Giorgio Armani.',
+        src: img('armani-residences.jpg'),
         tint: 'linear-gradient(150deg, #7b8392, #2a2f3a)',
       },
     ],
@@ -96,12 +102,14 @@ export const CATEGORIES = [
         id: 'at-the-top-sky',
         name: 'At The Top, SKY',
         blurb: 'Panoramic views from Level 148, with refreshments and an outdoor terrace.',
+        src: img('at-the-top-sky.jpg'),
         tint: 'linear-gradient(150deg, #5f84a5, #1d2d3d)',
       },
       {
         id: 'at-the-top',
         name: 'At The Top',
         blurb: 'Levels 124 and 125, at 456 metres — Dubai’s best-known viewpoint.',
+        src: img('at-the-top.jpg'),
         tint: 'linear-gradient(150deg, #7d98ad, #27333f)',
       },
     ],
