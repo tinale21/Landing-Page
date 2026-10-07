@@ -160,7 +160,7 @@
 /* ---------- body ---------- */
 .deck__body {
   margin-top: auto;
-  padding: 0 1.5rem 1rem;
+  padding: 0 1.5rem 0.5rem;
   text-align: center;
 }
 
@@ -230,7 +230,7 @@
 .scrollcue {
   display: flex;
   justify-content: center;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
 }
 
 .scrollcue__arrow {
