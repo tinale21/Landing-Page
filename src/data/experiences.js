@@ -7,6 +7,12 @@ const base = import.meta.env.BASE_URL
  */
 export const EXPERIENCES = [
   {
+    id: 'decks',
+    title: 'Observation Decks',
+    src: `${base}images/observation-decks.jpg`,
+    tint: 'linear-gradient(150deg, #6d8ba8, #223446)',
+  },
+  {
     id: 'dining',
     title: 'Fine Dining',
     src: `${base}images/fine-dining.jpg`,
@@ -17,7 +23,6 @@ export const EXPERIENCES = [
     title: 'Luxury Stays',
     src: `${base}images/luxury-stays.jpg`,
     tint: 'linear-gradient(150deg, #6f7f99, #26303f)',
-    featured: true,
   },
   {
     id: 'wellness',

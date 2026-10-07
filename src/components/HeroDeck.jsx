@@ -19,10 +19,7 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
       <div className="deck__body">
         <ul className="tiles" role="list">
           {EXPERIENCES.map((x) => (
-            <li
-              key={x.id}
-              className={`tile${x.featured ? ' tile--featured' : ''}`}
-            >
+            <li key={x.id} className="tile">
               <button
                 type="button"
                 className="tile__btn"
