@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import HeroDeck from './components/HeroDeck.jsx'
+import ExperienceSection from './components/ExperienceSection.jsx'
 import './App.css'
 
 /**
@@ -18,6 +19,10 @@ export default function App() {
           menuOpen={menuOpen}
           onToggleMenu={() => setMenuOpen((v) => !v)}
         />
+
+        <main>
+          <ExperienceSection />
+        </main>
       </div>
     </div>
   )

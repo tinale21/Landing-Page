@@ -256,3 +256,207 @@
     opacity: 0.7;
   }
 }
+
+/* ---------- experiences ---------- */
+.exp {
+  padding: 3.5rem 0 4rem;
+}
+
+.exp__title {
+  padding: 0 1.5rem;
+  font-family: var(--display);
+  font-size: 2.5rem;
+  letter-spacing: -0.015em;
+}
+
+.expcat {
+  margin-top: 2rem;
+}
+
+.expcat__title {
+  margin: 0 0 0.875rem;
+  padding: 0 1.5rem;
+  font-family: var(--ui);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- carousel ---------- */
+.vcar {
+  position: relative;
+}
+
+/* Native scroll-snap: swipes on touch, and the arrows scroll the same track. */
+.vcar__track {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vcar__track::-webkit-scrollbar {
+  display: none;
+}
+
+.vcar__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.vcard {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 24rem;
+  padding: 1.375rem;
+  border-radius: 1.25rem;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Strong enough for white type over bright, busy photography — the lesson
+   from the hero tiles, where a weak scrim read fine against flat gradients
+   and failed against real images. */
+.vcard__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 8, 6, 0.84) 0%,
+    rgba(10, 8, 6, 0.58) 30%,
+    rgba(10, 8, 6, 0.16) 58%,
+    rgba(10, 8, 6, 0.2) 70%,
+    rgba(10, 8, 6, 0.74) 100%
+  );
+}
+
+.vcard__body {
+  /* Top-anchored: the nav row sits far below, so nothing to clear. */
+  padding-bottom: 0;
+}
+
+/* Mirrors the renovation notice on the live site. */
+.vcard__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  margin-bottom: 0.75rem;
+  padding: 0.3125rem 0.625rem 0.3125rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(18, 14, 10, 0.42);
+  backdrop-filter: blur(6px);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.vcard__status i {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: #e0a94b;
+}
+
+.vcard__name {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.12;
+  color: #fff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.vcard__blurb {
+  margin: 0.5rem 0 1.125rem;
+  max-width: 19rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.vcard__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.vcard__cta:active {
+  transform: scale(0.98);
+}
+
+/* ---------- carousel nav ---------- */
+.vcar__nav {
+  position: absolute;
+  left: 2.875rem;
+  bottom: 1.375rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vnav {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: rgba(14, 11, 8, 0.4);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.vnav svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vnav:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+
+.vnav:not(:disabled):active {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.vcar__count {
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.6);
+}
