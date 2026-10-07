@@ -3,7 +3,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  /* lvh, not svh: svh is the viewport with the browser toolbars EXPANDED, so a
+     100svh hero under-fills the screen the moment those toolbars retract and
+     the next section slides into view. lvh is the toolbars-hidden height, so
+     the hero always covers the largest the viewport can get. */
+  min-height: 100vh; /* fallback for browsers without lvh */
+  min-height: 100lvh;
   isolation: isolate;
 }
 
@@ -160,7 +165,11 @@
 /* ---------- body ---------- */
 .deck__body {
   margin-top: auto;
+  /* Anchor the group to the SMALL-viewport fold rather than the hero's bottom,
+     so it stays on screen at load while the hero itself runs taller. On
+     desktop lvh == svh, so this collapses to 0.5rem. */
   padding: 0 1.5rem 0.5rem;
+  padding-bottom: calc(100lvh - 100svh + 0.5rem);
   text-align: center;
 }
 
