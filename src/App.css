@@ -745,3 +745,257 @@
   line-height: 1.6;
   color: var(--ink-soft);
 }
+
+/* ---------- history ---------- */
+.hist {
+  padding: 3.5rem 0 1rem;
+}
+
+.hist__title {
+  padding: 0 1.5rem;
+  font-family: var(--display);
+  font-size: 2.25rem;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.hist__intro {
+  margin: 0.875rem auto 0;
+  padding: 0 1.5rem;
+  max-width: 23rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- fact tiles ---------- */
+.hfacts {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: stretch;
+  gap: 0.625rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hfacts::-webkit-scrollbar {
+  display: none;
+}
+
+.hfact {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.1875rem;
+  width: 8rem;
+  height: 11rem;
+  padding: 0.875rem;
+  border-radius: 1rem;
+  background-color: #1b2440;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hfact__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 10, 18, 0.88) 0%,
+    rgba(8, 10, 18, 0.5) 42%,
+    rgba(8, 10, 18, 0.18) 100%
+  );
+}
+
+.hfact__value {
+  position: relative;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  font-family: var(--display);
+  font-size: 2.125rem;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+}
+
+.hfact__value em {
+  margin-left: 0.25rem;
+  font-family: var(--ui);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hfact__label {
+  position: relative;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- timeline ---------- */
+.tl {
+  margin-top: 1rem;
+}
+
+.tl__bar {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 1.5rem 0.75rem;
+}
+
+.tl__seg {
+  flex: 1 1 0;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(21, 17, 13, 0.14);
+  transition: background 0.25s ease;
+}
+
+.tl__seg.is-on {
+  background: var(--ink);
+}
+
+.tl__track {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tl__track::-webkit-scrollbar {
+  display: none;
+}
+
+.tl__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.mile {
+  position: relative;
+  display: flex;
+  min-height: 15rem;
+  padding: 1.375rem;
+  border-radius: 1.25rem;
+  background-color: #0b1020;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Strong at the foot where the copy sits, so the type survives busy
+   construction photography. */
+.mile__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(6, 9, 16, 0.92) 0%,
+    rgba(6, 9, 16, 0.72) 38%,
+    rgba(6, 9, 16, 0.34) 68%,
+    rgba(6, 9, 16, 0.22) 100%
+  );
+}
+
+/* Lit to the height the tower had actually reached at that milestone. */
+.mile__tower {
+  position: absolute;
+  top: 1.25rem;
+  right: -1.5rem;
+  height: 76%;
+  width: auto;
+  opacity: 0.5;
+}
+
+.mile__body {
+  position: relative;
+  align-self: flex-end;
+  max-width: 14rem;
+}
+
+.mile__when {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #cfa76d;
+}
+
+.mile__title {
+  margin: 0.375rem 0 0;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.12;
+  color: #fff;
+}
+
+.mile__text {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tl__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 0.875rem 1.5rem 0;
+}
+
+.tl__count {
+  margin-right: auto;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+}
+
+.tnav {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: var(--paper);
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.tnav svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tnav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.tnav:not(:disabled):active {
+  background: #f2f0ec;
+}

@@ -1,9 +1,18 @@
+import { useId } from 'react'
+
 /**
  * Original SVG massing study — stacked setbacks tapering to a spire, after the
  * tower's tri-lobed spiral plan. Drawn rather than photographed so the asset is
  * ours and stays crisp at any density.
  */
 export default function TowerSilhouette({ climb = 0, className = '' }) {
+  // Unique per instance: with a hard-coded id, every tower on the page would
+  // resolve url(#lit-clip) to the FIRST one in the document and inherit its
+  // fill level, so they all rendered identically.
+  const uid = useId().replace(/:/g, '')
+  const clipId = `lit-clip-${uid}`
+  const gradId = `tower-lit-${uid}`
+
   // Bands are drawn bottom-up; each narrows as it rises.
   const bands = [
     { y: 300, h: 60, w: 54 },
@@ -29,11 +38,11 @@ export default function TowerSilhouette({ climb = 0, className = '' }) {
       aria-label="Massing diagram of the Burj Khalifa, narrowing in setbacks to a spire"
     >
       <defs>
-        <linearGradient id="tower-lit" x1="0" y1="1" x2="0" y2="0">
+        <linearGradient id={gradId} x1="0" y1="1" x2="0" y2="0">
           <stop offset="0%" stopColor="#C9A24B" />
           <stop offset="100%" stopColor="#E8C46A" />
         </linearGradient>
-        <clipPath id="lit-clip">
+        <clipPath id={clipId}>
           <rect x="0" y={litFrom} width="120" height={360 - litFrom} />
         </clipPath>
       </defs>
@@ -53,7 +62,7 @@ export default function TowerSilhouette({ climb = 0, className = '' }) {
         <rect x="59" y="8" width="2" height="22" fill="#232B4A" />
       </g>
 
-      <g clipPath="url(#lit-clip)">
+      <g clipPath={`url(#${clipId})`}>
         {bands.map((b) => (
           <rect
             key={`lit-${b.y}`}
@@ -62,10 +71,10 @@ export default function TowerSilhouette({ climb = 0, className = '' }) {
             width={b.w}
             height={b.h}
             rx="1"
-            fill="url(#tower-lit)"
+            fill={`url(#${gradId})`}
           />
         ))}
-        <rect x="59" y="8" width="2" height="22" fill="url(#tower-lit)" />
+        <rect x="59" y="8" width="2" height="22" fill={`url(#${gradId})`} />
       </g>
     </svg>
   )

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import HeroDeck from './components/HeroDeck.jsx'
+import HistorySection from './components/HistorySection.jsx'
 import ExperienceSection from './components/ExperienceSection.jsx'
 import VenueDetail from './components/VenueDetail.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
@@ -36,6 +37,7 @@ export default function App() {
               onToggleMenu={() => setMenuOpen((v) => !v)}
             />
             <main>
+              <HistorySection />
               <ExperienceSection />
             </main>
           </>
