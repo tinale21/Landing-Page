@@ -2,6 +2,7 @@ import { useState } from 'react'
 import HeroDeck from './components/HeroDeck.jsx'
 import HistorySection from './components/HistorySection.jsx'
 import ExperienceSection from './components/ExperienceSection.jsx'
+import FaqSection from './components/FaqSection.jsx'
 import VenueDetail from './components/VenueDetail.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
 import { CATEGORIES } from './data/venues.js'
@@ -39,6 +40,7 @@ export default function App() {
             <main>
               <HistorySection />
               <ExperienceSection />
+              <FaqSection />
             </main>
           </>
         )}
