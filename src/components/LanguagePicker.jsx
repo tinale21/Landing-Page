@@ -17,7 +17,8 @@ export default function LanguagePicker({ open, onClose }) {
       if (e.key === 'Escape') onClose()
     }
     window.addEventListener('keydown', onKey)
-    panelRef.current?.focus()
+    // Same reason as MainMenu: the sheet is still translated off-screen here.
+    panelRef.current?.focus({ preventScroll: true })
     return () => {
       window.removeEventListener('keydown', onKey)
     }

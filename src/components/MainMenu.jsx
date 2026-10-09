@@ -56,7 +56,11 @@ export default function MainMenu({ open, onClose }) {
       if (e.key === 'Escape') onClose()
     }
     window.addEventListener('keydown', onKey)
-    closeRef.current?.focus()
+    // preventScroll is load-bearing on iOS: the panel is still at
+    // translateX(100%) when this runs, and focusing an off-screen element
+    // makes the browser scroll the document sideways to reveal it, then
+    // scroll back as the panel animates in. That is the shift-and-settle.
+    closeRef.current?.focus({ preventScroll: true })
     return () => {
       window.removeEventListener('keydown', onKey)
     }
