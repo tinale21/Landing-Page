@@ -1984,3 +1984,162 @@
   font-variant-numeric: tabular-nums;
 }
 
+
+/* ---------- about page ---------- */
+.about {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.about__hero {
+  position: relative;
+  min-height: 15rem;
+  margin: 0 1.25rem;
+  border-radius: 1.25rem;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.about__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(6, 9, 16, 0.6), rgba(6, 9, 16, 0.1));
+}
+
+/* The silhouette returns here as a motif, at full height. */
+.about__tower {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 0;
+  height: 86%;
+  width: auto;
+  opacity: 0.55;
+}
+
+.about__intro {
+  padding: 1.5rem 1.5rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.quote {
+  margin: 1.5rem 1.5rem 0;
+  padding: 1.125rem 1.25rem;
+  border-left: 2px solid #cfa76d;
+  background: #faf9f7;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.quote__text {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+
+.quote__who {
+  display: block;
+  margin-top: 0.625rem;
+  font-family: var(--ui);
+  font-size: 0.75rem;
+  font-style: normal;
+  color: var(--ink-faint);
+}
+
+.about__glance {
+  padding: 1.5rem 1.5rem 0;
+}
+
+/* ---------- height comparison ---------- */
+.towers {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.tower {
+  text-align: center;
+}
+
+/* Fixed-height track so each bar's percentage resolves against the same
+   box. Sizing the bar directly inside the column let flex shrink it to
+   fit beside the labels, which flattened the scale. */
+.tower__track {
+  display: flex;
+  align-items: flex-end;
+  height: 10rem;
+}
+
+.tower__bar {
+  width: 100%;
+  border-radius: 0.375rem 0.375rem 0 0;
+  background: rgba(21, 17, 13, 0.14);
+}
+
+.tower.is-self .tower__bar {
+  background: linear-gradient(to top, #cfa76d, #e2c38f);
+}
+
+.tower__m,
+.tower__name,
+.tower__city {
+  display: block;
+}
+
+.tower__m {
+  margin-top: 0.4375rem;
+  font-family: var(--display);
+  font-size: 0.9375rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.tower__name {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.tower__city {
+  font-size: 0.625rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- awards ---------- */
+.awards {
+  list-style: none;
+  margin: 1.125rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--hairline);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.award {
+  display: flex;
+  align-items: baseline;
+  gap: 0.875rem;
+  padding: 0.75rem 1rem;
+  background: #faf9f7;
+}
+
+.award__year {
+  flex: 0 0 2.5rem;
+  font-family: var(--display);
+  font-size: 0.9375rem;
+  color: #a07c3f;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.award__name {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
