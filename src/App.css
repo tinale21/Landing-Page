@@ -1259,3 +1259,241 @@
   font-size: 0.75rem;
   color: var(--ink-soft);
 }
+
+/* ---------- main menu ---------- */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.menu.is-open {
+  pointer-events: auto;
+}
+
+.menu__scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(10, 8, 6, 0.42);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  cursor: default;
+}
+
+.menu.is-open .menu__scrim {
+  opacity: 1;
+}
+
+/* Bounds the drawer to the phone column and hides it once it slides past the
+   edge. pointer-events none so the scrim beneath still receives taps. */
+.menu__clip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 26rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Side drawer, sliding in from under the hamburger that opened it. */
+.menu__panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 86%;
+  max-width: 21rem;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  box-shadow: -0.75rem 0 2.5rem rgba(10, 8, 6, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.menu.is-open .menu__panel {
+  transform: translateX(0);
+}
+
+.menu__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.menu__brand {
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.menu__close {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(21, 17, 13, 0.07);
+  cursor: pointer;
+}
+
+.menu__close svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.menu__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 1.5rem 2rem;
+}
+
+.menu__groups {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- menu group ---------- */
+.mgrp {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.mgrp__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.0625rem 0;
+  font-family: var(--ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mgrp__head::-webkit-details-marker {
+  display: none;
+}
+
+.mgrp__chev {
+  flex: 0 0 auto;
+  width: 1.0625rem;
+  height: 1.0625rem;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.mgrp[open] > .mgrp__head .mgrp__chev,
+.msub[open] > .msub__head .mgrp__chev {
+  transform: rotate(180deg);
+  stroke: var(--ink);
+}
+
+.mgrp__list,
+.msub__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.625rem;
+}
+
+.msub__list {
+  padding: 0 0 0.25rem;
+}
+
+/* ---------- rows ---------- */
+.mrow__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6875rem 0 0.6875rem 0.875rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.mrow__link.is-deep {
+  padding-left: 1.875rem;
+  font-size: 0.875rem;
+}
+
+.mrow__link:active {
+  color: var(--ink);
+}
+
+.mrow__out {
+  flex: 0 0 auto;
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.msub__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6875rem 0 0.6875rem 0.875rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  list-style: none;
+}
+
+.msub__head::-webkit-details-marker {
+  display: none;
+}
+
+/* Languages: shown, not promised. */
+.mrow--static {
+  display: grid;
+  gap: 0.125rem;
+  padding: 0.6875rem 0 0.6875rem 0.875rem;
+}
+
+.mrow__label {
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.mrow__note {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu__panel,
+  .menu__scrim {
+    transition: none;
+  }
+}

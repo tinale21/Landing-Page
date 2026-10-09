@@ -1,0 +1,155 @@
+import { useEffect, useRef } from 'react'
+import { MENU } from '../data/menu.js'
+
+const isExternal = (href) => Boolean(href) && href.startsWith('http')
+
+/** Opens the matching FRQ group and scrolls to it. */
+function goToFaqGroup(id) {
+  const el = document.getElementById(`faq-grp-${id}`)
+  if (!el) return
+  el.open = true
+  el.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto'
+      : 'smooth',
+    block: 'start',
+  })
+}
+
+export default function MainMenu({ open, onClose }) {
+  const closeRef = useRef(null)
+
+  // Escape closes, and the page behind must not scroll while the panel is up.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+    }
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    closeRef.current?.focus()
+    return () => {
+      document.body.style.overflow = prev
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [open, onClose])
+
+  const handle = (item) => (e) => {
+    if (item.faq) {
+      e.preventDefault()
+      onClose()
+      // Let the panel unmount before scrolling, or the scroll lock fights it.
+      requestAnimationFrame(() => goToFaqGroup(item.faq))
+      return
+    }
+    if (!isExternal(item.href)) onClose()
+  }
+
+  const Row = ({ item, deep }) => {
+    if (item.note) {
+      return (
+        <li className="mrow mrow--static">
+          <span className={`mrow__label${deep ? ' is-deep' : ''}`}>{item.label}</span>
+          <span className="mrow__note">{item.note}</span>
+        </li>
+      )
+    }
+    return (
+      <li>
+        <a
+          className={`mrow__link${deep ? ' is-deep' : ''}`}
+          href={item.href ?? '#faq'}
+          onClick={handle(item)}
+          {...(isExternal(item.href)
+            ? { target: '_blank', rel: 'noopener noreferrer' }
+            : {})}
+        >
+          <span>{item.label}</span>
+          {isExternal(item.href) && (
+            <svg className="mrow__out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M8 16 L16 8" />
+              <path d="M9 8h7v7" />
+            </svg>
+          )}
+        </a>
+      </li>
+    )
+  }
+
+  return (
+    <div className={`menu${open ? ' is-open' : ''}`} aria-hidden={!open}>
+      <button
+        type="button"
+        className="menu__scrim"
+        onClick={onClose}
+        tabIndex={-1}
+        aria-label="Close menu"
+      />
+
+      {/* Clips the drawer to the phone column: without it the panel slides out
+          into the grey beside the column on a wide screen, instead of
+          disappearing off the edge of the "device". */}
+      <div className="menu__clip">
+        <div className="menu__panel" role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="menu__head">
+          <span className="menu__brand">Burj Khalifa</span>
+          <button
+            type="button"
+            className="menu__close"
+            onClick={onClose}
+            ref={closeRef}
+            aria-label="Close menu"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6 L18 18" />
+              <path d="M18 6 L6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <nav className="menu__body" aria-label="Main menu">
+          <ul className="menu__groups" role="list">
+            {MENU.map((group) => (
+              <li key={group.id}>
+                <details className="mgrp">
+                  <summary className="mgrp__head">
+                    <span>{group.title}</span>
+                    <svg className="mgrp__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M6 9 L12 15 L18 9" />
+                    </svg>
+                  </summary>
+
+                  <ul className="mgrp__list" role="list">
+                    {group.items.map((item) =>
+                      item.children ? (
+                        <li key={item.label}>
+                          <details className="msub">
+                            <summary className="msub__head">
+                              <span>{item.label}</span>
+                              <svg className="mgrp__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M6 9 L12 15 L18 9" />
+                              </svg>
+                            </summary>
+                            <ul className="msub__list" role="list">
+                              {item.children.map((kid) => (
+                                <Row item={kid} key={kid.label} deep />
+                              ))}
+                            </ul>
+                          </details>
+                        </li>
+                      ) : (
+                        <Row item={item} key={item.label} />
+                      )
+                    )}
+                  </ul>
+                </details>
+              </li>
+            ))}
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  )
+}

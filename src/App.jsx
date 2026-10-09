@@ -5,6 +5,7 @@ import ExperienceSection from './components/ExperienceSection.jsx'
 import FaqSection from './components/FaqSection.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
 import VenueDetail from './components/VenueDetail.jsx'
+import MainMenu from './components/MainMenu.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
 import { CATEGORIES } from './data/venues.js'
 import './App.css'
@@ -46,6 +47,7 @@ export default function App() {
             <SiteFooter />
           </>
         )}
+        <MainMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
       </div>
     </div>
   )

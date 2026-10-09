@@ -14,7 +14,7 @@ export default function FaqSection() {
       <ul className="faq__groups" role="list">
         {FAQ_GROUPS.map((group) => (
           <li key={group.id}>
-            <details className="grp">
+            <details className="grp" id={`faq-grp-${group.id}`}>
               <summary className="grp__head">
                 <span className="grp__name">{group.title}</span>
                 <svg className="grp__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
