@@ -1,3 +1,5 @@
+import { useLang } from '../hooks/useLang.jsx'
+
 const base = import.meta.env.BASE_URL
 
 /**
@@ -5,7 +7,8 @@ const base = import.meta.env.BASE_URL
  * the collapsed menu, in this order: brand logo, language switcher,
  * BOOK TICKETS, hamburger. Verified against burjkhalifa.ae in-browser.
  */
-export default function NavBar({ onToggle, open }) {
+export default function NavBar({ onToggle, open, onOpenLang }) {
+  const { t } = useLang()
   return (
     <nav className="nav" aria-label="Main">
       <a className="nav__logo" href="#top" aria-label="Burj Khalifa — home">
@@ -24,7 +27,8 @@ export default function NavBar({ onToggle, open }) {
       </a>
 
       <div className="nav__actions">
-        <button type="button" className="nav__lang" aria-label="Change language">
+        <button type="button" className="nav__lang" aria-label={t('language')}
+          onClick={onOpenLang}>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <circle cx="12" cy="12" r="9" />
             <ellipse cx="12" cy="12" rx="4" ry="9" />
@@ -33,13 +37,13 @@ export default function NavBar({ onToggle, open }) {
         </button>
 
         <a className="nav__tickets" href="#tickets">
-          Book Tickets
+          {t('bookTickets')}
         </a>
 
         <button
           type="button"
           className="nav__burger"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? t('close') : t('menu')}
           aria-expanded={open}
           onClick={onToggle}
         >

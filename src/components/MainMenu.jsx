@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { MENU } from '../data/menu.js'
+import { useLang } from '../hooks/useLang.jsx'
 
 const isExternal = (href) => Boolean(href) && href.startsWith('http')
 
@@ -17,14 +18,6 @@ function goToFaqGroup(id) {
 }
 
 const Row = ({ item, deep, onNavigate }) => {
-  if (item.note) {
-    return (
-      <li className="mrow mrow--static">
-        <span className={`mrow__label${deep ? ' is-deep' : ''}`}>{item.label}</span>
-        <span className="mrow__note">{item.note}</span>
-      </li>
-    )
-  }
   return (
     <li>
       <a
@@ -48,6 +41,7 @@ const Row = ({ item, deep, onNavigate }) => {
 }
 
 export default function MainMenu({ open, onClose }) {
+  const { t } = useLang()
   const closeRef = useRef(null)
 
   // Escape closes, and the page behind must not scroll while the panel is up.
@@ -102,7 +96,7 @@ export default function MainMenu({ open, onClose }) {
             className="menu__close"
             onClick={onClose}
             ref={closeRef}
-            aria-label="Close menu"
+            aria-label={t('close')}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M6 6 L18 18" />
@@ -117,7 +111,7 @@ export default function MainMenu({ open, onClose }) {
               <li key={group.id}>
                 <details className="mgrp">
                   <summary className="mgrp__head">
-                    <span>{group.title}</span>
+                    <span>{t(group.titleKey)}</span>
                     <svg className="mgrp__chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                       <path d="M6 9 L12 15 L18 9" />
                     </svg>

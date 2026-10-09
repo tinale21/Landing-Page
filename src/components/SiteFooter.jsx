@@ -1,10 +1,12 @@
 import { FOOTER_COLUMNS, CONTACT, LEGAL, TAGLINE } from '../data/footer.js'
+import { useLang } from '../hooks/useLang.jsx'
 
 const art = `${import.meta.env.BASE_URL}images/footer-art.jpg`
 
 const isExternal = (href) => href.startsWith('http')
 
 export default function SiteFooter() {
+  const { t } = useLang()
   return (
     <footer className="foot">
       <div
@@ -19,8 +21,8 @@ export default function SiteFooter() {
 
       <div className="foot__cols">
         {FOOTER_COLUMNS.map((col) => (
-          <nav className="fcol" key={col.title} aria-label={col.title}>
-            <h3 className="fcol__title">{col.title}</h3>
+          <nav className="fcol" key={col.titleKey} aria-label={t(col.titleKey)}>
+            <h3 className="fcol__title">{t(col.titleKey)}</h3>
             <ul className="fcol__list" role="list">
               {col.links.map((l) => (
                 <li key={l.label}>
@@ -40,12 +42,12 @@ export default function SiteFooter() {
         ))}
 
         <div className="fcol">
-          <h3 className="fcol__title">Contact</h3>
+          <h3 className="fcol__title">{t('fContact')}</h3>
           <address className="fcol__address">{CONTACT.address}</address>
           <ul className="fcol__list" role="list">
             {CONTACT.lines.map((c) => (
-              <li className="fcol__phone" key={c.label}>
-                <span>{c.label}</span>
+              <li className="fcol__phone" key={c.labelKey}>
+                <span>{t(c.labelKey)}</span>
                 <strong>{c.value}</strong>
               </li>
             ))}

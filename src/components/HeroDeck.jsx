@@ -1,8 +1,10 @@
 import NavBar from './NavBar.jsx'
+import { useLang } from '../hooks/useLang.jsx'
 import ScrollCue from './ScrollCue.jsx'
 import { HERO_BACKDROP } from '../data/experiences.js'
 
-export default function HeroDeck({ menuOpen, onToggleMenu }) {
+export default function HeroDeck({ menuOpen, onToggleMenu, onOpenLang }) {
+  const { t } = useLang()
   return (
     <header className="deck" id="top">
       {/* Backdrop: Downtown Dubai aerial, faded out into the page below. */}
@@ -15,22 +17,19 @@ export default function HeroDeck({ menuOpen, onToggleMenu }) {
       <div className="deck__topscrim" aria-hidden="true" />
       <div className="deck__fade" aria-hidden="true" />
 
-      <NavBar open={menuOpen} onToggle={onToggleMenu} />
+      <NavBar open={menuOpen} onToggle={onToggleMenu} onOpenLang={onOpenLang} />
 
       <div className="deck__body">
         <h1 className="deck__title">Burj Khalifa</h1>
 
-        <p className="deck__sub">
-          Dine, stay, and unwind inside the world’s tallest building, then take
-          the lift to the top. Every Burj Khalifa experience, booked in one place.
-        </p>
+        <p className="deck__sub">{t('heroSub')}</p>
 
         <div className="deck__actions">
           <a className="pill pill--solid" href="#about">
-            About Burj Khalifa
+            {t('about')}
           </a>
           <a className="pill pill--outline" href="#plan">
-            Plan My Trip
+            {t('planTrip')}
           </a>
         </div>
 

@@ -1,4 +1,5 @@
 import { FAQ_GROUPS } from '../data/faq.js'
+import { useLang } from '../hooks/useLang.jsx'
 
 /**
  * Nested native disclosures: a category opens to reveal its questions, each of
@@ -6,10 +7,11 @@ import { FAQ_GROUPS } from '../data/faq.js'
  * nothing is expanded on load — 28 answers at once would bury the page.
  */
 export default function FaqSection() {
+  const { t } = useLang()
   return (
     <section className="faq" id="faq" aria-labelledby="faq-h">
       <h2 className="faq__title" id="faq-h">
-        FRQ
+        {t('faqTitle')}
       </h2>
       <ul className="faq__groups" role="list">
         {FAQ_GROUPS.map((group) => (

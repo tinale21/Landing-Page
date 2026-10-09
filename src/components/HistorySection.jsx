@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import TowerSilhouette from './TowerSilhouette.jsx'
+import { useLang } from '../hooks/useLang.jsx'
 import { MILESTONES, FACTS, INTRO } from '../data/history.js'
 
 export default function HistorySection() {
+  const { t } = useLang()
   const trackRef = useRef(null)
   const [i, setI] = useState(0)
 
@@ -46,7 +48,7 @@ export default function HistorySection() {
   return (
     <section className="hist" id="history" aria-labelledby="hist-h">
       <h2 className="hist__title" id="hist-h">
-        The Making of Burj Khalifa
+        {t('historyTitle')}
       </h2>
       <p className="hist__intro">{INTRO}</p>
 

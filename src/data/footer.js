@@ -9,7 +9,7 @@
  */
 export const FOOTER_COLUMNS = [
   {
-    title: 'Explore',
+    titleKey: 'fExplore',
     links: [
       { label: 'The Making', href: '#history' },
       { label: 'Experiences', href: '#experiences' },
@@ -18,7 +18,7 @@ export const FOOTER_COLUMNS = [
     ],
   },
   {
-    title: 'Visit',
+    titleKey: 'fVisit',
     links: [
       { label: 'At The Top', href: '#/venue/at-the-top' },
       { label: 'At The Top SKY', href: '#/venue/at-the-top-sky' },
@@ -27,7 +27,7 @@ export const FOOTER_COLUMNS = [
     ],
   },
   {
-    title: 'Follow',
+    titleKey: 'fFollow',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/burjkhalifa/' },
       { label: 'Facebook', href: 'https://www.facebook.com/BurjKhalifaByEmaar/' },
@@ -39,8 +39,8 @@ export const FOOTER_COLUMNS = [
 export const CONTACT = {
   address: '1 Mohammed Bin Rashid Boulevard, Downtown Dubai, United Arab Emirates',
   lines: [
-    { label: 'Within the UAE', value: '800 ATTHETOP' },
-    { label: 'International', value: '+971 4 888 8124' },
+    { labelKey: 'withinUae', value: '800 ATTHETOP' },
+    { labelKey: 'international', value: '+971 4 888 8124' },
   ],
 }
 

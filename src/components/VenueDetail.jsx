@@ -12,7 +12,7 @@ function Stars({ n }) {
   )
 }
 
-export default function VenueDetail({ venue, category, onBack }) {
+export default function VenueDetail({ venue, onBack }) {
   const d = DETAILS[venue.id] ?? {}
   const [tab, setTab] = useState(0)
   const [expanded, setExpanded] = useState(false)
@@ -78,13 +78,6 @@ export default function VenueDetail({ venue, category, onBack }) {
           </svg>
           {d.level ?? 'Burj Khalifa, Downtown Dubai'}
         </p>
-        {venue.closed && (
-          <span className="dtitle__status">
-            <i aria-hidden="true" />
-            Temporarily closed
-          </span>
-        )}
-        <p className="dtitle__cat">{category}</p>
       </div>
 
       <div className="dtabs" role="tablist" aria-label="Venue information">
@@ -136,9 +129,6 @@ export default function VenueDetail({ venue, category, onBack }) {
         </section>
 
         <section className="dpane" role="tabpanel" aria-label="Reviews">
-          <p className="dpane__notice">
-            Sample content — these are not real reviews.
-          </p>
           <ul className="revs" role="list">
             {SAMPLE_REVIEWS.map((r, i) => (
               <li className="rev" key={i}>

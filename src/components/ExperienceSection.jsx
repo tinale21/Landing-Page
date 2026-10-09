@@ -1,11 +1,13 @@
 import { CATEGORIES } from '../data/venues.js'
 import VenueCarousel from './VenueCarousel.jsx'
+import { useLang } from '../hooks/useLang.jsx'
 
 export default function ExperienceSection() {
+  const { t } = useLang()
   return (
     <section className="exp" id="experiences" aria-labelledby="exp-h">
       <h2 className="exp__title" id="exp-h">
-        Experiences
+        {t('experiencesTitle')}
       </h2>
 
       {CATEGORIES.map((cat) => (

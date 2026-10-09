@@ -1,3 +1,5 @@
+import { CATEGORIES } from './venues.js'
+
 /**
  * Hamburger menu. Every row goes somewhere real: an in-page section, a venue
  * detail route, an FRQ group, or — where this prototype has no equivalent —
@@ -8,49 +10,26 @@
  */
 const SITE = 'https://www.burjkhalifa.ae'
 
+/**
+ * Built from CATEGORIES rather than retyped, so the menu cannot drift out of
+ * sync with the Experiences section or the detail routes.
+ */
+const expand = (categoryId, label) => {
+  const cat = CATEGORIES.find((c) => c.id === categoryId)
+  return {
+    label: label ?? cat.title,
+    href: '#experiences',
+    children: cat.venues.map((v) => ({
+      label: v.name,
+      href: `#/venue/${v.id}`,
+    })),
+  }
+}
+
 export const MENU = [
   {
-    id: 'plan',
-    title: 'Plan Your Visit',
-    items: [
-      { label: 'Tickets & Pricing', faq: 'tickets' },
-      { label: 'Hours', faq: 'visiting' },
-      { label: 'Parking', faq: 'getting-there' },
-      { label: 'Accessibility', faq: 'accessibility' },
-      { label: 'Visitor Information', faq: 'amenities' },
-    ],
-  },
-  {
-    id: 'experiences',
-    title: 'Experiences',
-    items: [
-      {
-        label: 'Observation Decks',
-        href: '#experiences',
-        children: [
-          { label: 'At The Top', href: '#/venue/at-the-top' },
-          { label: 'At The Top SKY', href: '#/venue/at-the-top-sky' },
-          { label: 'The Lounge', href: '#/venue/the-lounge' },
-        ],
-      },
-      { label: 'Fine Dining', href: '#experiences' },
-      { label: 'Luxury Stays', href: '#experiences' },
-      { label: 'Wellness', href: '#/venue/armani-spa' },
-    ],
-  },
-  {
-    id: 'explore',
-    title: 'Explore Dubai',
-    items: [
-      { label: 'Dubai Fountain', href: '#/venue/dubai-fountain' },
-      { label: 'Dubai Opera', href: '#/venue/dubai-opera' },
-      { label: 'Dubai Mall', href: '#/venue/dubai-mall' },
-      { label: 'Sky Views Observatory', href: '#/venue/sky-views' },
-    ],
-  },
-  {
     id: 'about',
-    title: 'About Burj Khalifa',
+    titleKey: 'mAbout',
     items: [
       { label: 'History & Making', href: '#history' },
       { label: 'Architecture & Design', href: `${SITE}/the-tower/architecture-design/` },
@@ -61,14 +40,42 @@ export const MENU = [
     ],
   },
   {
+    id: 'plan',
+    titleKey: 'mPlan',
+    items: [
+      { label: 'Tickets & Pricing', faq: 'tickets' },
+      { label: 'Hours', faq: 'visiting' },
+      { label: 'Parking', faq: 'getting-there' },
+      { label: 'Accessibility', faq: 'accessibility' },
+      { label: 'Visitor Information', faq: 'amenities' },
+    ],
+  },
+  {
+    id: 'experiences',
+    titleKey: 'mExperiences',
+    items: [
+      expand('decks', 'Observation Decks'),
+      expand('dining', 'Fine Dining'),
+      expand('stays', 'Luxury Stays'),
+      expand('wellness', 'Wellness'),
+    ],
+  },
+  {
+    id: 'explore',
+    titleKey: 'mExplore',
+    items: [
+      { label: 'Dubai Fountain', href: '#/venue/dubai-fountain' },
+      { label: 'Dubai Opera', href: '#/venue/dubai-opera' },
+      { label: 'Dubai Mall', href: '#/venue/dubai-mall' },
+      { label: 'Sky Views Observatory', href: '#/venue/sky-views' },
+    ],
+  },
+  {
     id: 'more',
-    title: 'More',
+    titleKey: 'mMore',
     items: [
       { label: 'Events / Projections', href: `${SITE}/commercial-projections/` },
       { label: 'Open Call', href: `${SITE}/open-call/` },
-      // The real site offers four languages. This prototype is English only,
-      // so they are shown as a statement of intent, not as working switches.
-      { label: 'Languages', note: 'English · العربية · Русский · 简体中文' },
       { label: 'FRQ', href: '#faq' },
     ],
   },

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useLang } from '../hooks/useLang.jsx'
 
 /**
  * One category's venues. The track is a native scroll-snap row, so it swipes
@@ -6,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
  * which keeps finger and button in agreement.
  */
 export default function VenueCarousel({ venues, label }) {
+  const { t } = useLang()
   const trackRef = useRef(null)
   const [index, setIndex] = useState(0)
   const multiple = venues.length > 1
@@ -73,12 +75,12 @@ export default function VenueCarousel({ venues, label }) {
                   aria-hidden={v.closed ? undefined : 'true'}
                 >
                   <i aria-hidden="true" />
-                  Temporarily closed
+                  {t('temporarilyClosed')}
                 </span>
                 <h4 className="vcard__name">{v.name}</h4>
                 <p className="vcard__blurb">{v.blurb}</p>
                 <a className="vcard__cta" href={`#/venue/${v.id}`}>
-                  Explore More
+                  {t('exploreMore')}
                 </a>
               </div>
             </article>
