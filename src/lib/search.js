@@ -185,19 +185,31 @@ export function search(query, { type = 'all' } = {}) {
     if (type !== 'all' && e.type !== type) continue
     const title = e.title.toLowerCase()
     let score = 0
-    const matched = new Set()
+    // Terms worth explaining: ones the user did not type, or ones that matched
+    // only in the body. Phrases are kept whole for display.
+    const why = new Set()
 
     for (const t of terms) {
-      if (title === t) { score += 120; matched.add(t) }
-      else if (title.startsWith(t)) { score += 80; matched.add(t) }
-      else if (title.includes(t)) { score += 60; matched.add(t) }
-      else if (e._body.includes(t)) { score += 25; matched.add(t) }
+      if (title === t) score += 120
+      else if (title.startsWith(t)) score += 80
+      else if (title.includes(t)) score += 60
+      else if (e._body.includes(t)) {
+        score += 25
+        why.add(t)
+      }
     }
-    // Synonym hits count, but less than the user's own words.
-    for (const w of wanted) {
-      if (terms.includes(w)) continue
-      if (title.includes(w)) { score += 30; matched.add(w) }
-      else if (e._body.includes(w)) { score += 12; matched.add(w) }
+
+    for (const t of terms) {
+      for (const phrase of SYNONYMS[t] ?? []) {
+        if (terms.includes(phrase)) continue
+        if (title.includes(phrase)) {
+          score += 30
+          why.add(phrase)
+        } else if (e._body.includes(phrase)) {
+          score += 12
+          why.add(phrase)
+        }
+      }
     }
     if (!score) continue
 
@@ -205,7 +217,15 @@ export function search(query, { type = 'all' } = {}) {
     if (terms.every((t) => title.includes(t) || e._body.includes(t))) score += 40
 
     score += TYPES[e.type].weight * 0.6
-    hits.push({ ...e, score, why: [...matched].slice(0, 4) })
+
+    // If one of the user's own words is already in the title, the result
+    // explains itself — say nothing rather than restating the obvious.
+    const selfEvident = terms.some((t) => title.includes(t))
+    // Drop any term already contained in a longer one — "service animal"
+    // makes "animal" redundant.
+    const list = [...why].sort((a, b) => b.length - a.length)
+    const pruned = list.filter((w, i) => !list.slice(0, i).some((l) => l.includes(w)))
+    hits.push({ ...e, score, why: selfEvident ? [] : pruned.slice(0, 3) })
   }
 
   return hits.sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))

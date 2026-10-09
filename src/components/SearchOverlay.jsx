@@ -129,15 +129,17 @@ export default function SearchOverlay({ open, onClose }) {
                   <li key={r.id}>
                     <button type="button" className="res" onClick={() => go(r)}>
                       <span className="res__top">
-                        <span className="res__type">{TYPES[r.type].label}</span>
+                        <span className={`res__type res__type--${r.type}`}>{TYPES[r.type].label}</span>
                         {r.meta && <span className="res__meta">{r.meta}</span>}
                       </span>
                       <span className="res__title">{r.title}</span>
                       <span className="res__desc">{r.desc}</span>
-                      {/* Why this result matched — the brief asks results to
-                          explain themselves, not just appear. */}
+                      {/* Shown only when the user's own words are absent from
+                          the title — otherwise the result explains itself and
+                          a chip restating the obvious is just noise. */}
                       {r.why.length > 0 && (
                         <span className="res__why">
+                          <small>{t('matchedOn')}</small>
                           {r.why.map((w) => (
                             <em key={w}>{w}</em>
                           ))}

@@ -1786,12 +1786,35 @@
 .res__type {
   padding: 0.125rem 0.4375rem;
   border-radius: 999px;
-  background: var(--ink);
   font-size: 0.5625rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;
+}
+
+/* One colour per content type, so the kind of answer is readable before the
+   words are. Gold for the booking action matches the BOOK TICKETS button, so
+   the transactional result looks transactional. */
+.res__type--action {
+  background: #cfa76d;
+  color: #35291a;
+}
+
+.res__type--visitor {
+  background: #2f4a6b;
+}
+
+.res__type--experience {
+  background: #8a5236;
+}
+
+.res__type--history {
+  background: #1b2440;
+}
+
+.res__type--section {
+  background: #6b665f;
 }
 
 .res__meta {
@@ -1813,9 +1836,18 @@
 
 .res__why {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 0.3125rem;
   margin-top: 0.1875rem;
+}
+
+.res__why small {
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
 }
 
 .res__why em {
