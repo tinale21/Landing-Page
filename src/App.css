@@ -1363,6 +1363,7 @@
 .menu__body {
   flex: 1 1 auto;
   overflow-y: auto;
+  scrollbar-gutter: stable;
   -webkit-overflow-scrolling: touch;
   padding: 0.5rem 1.5rem 2rem;
 }

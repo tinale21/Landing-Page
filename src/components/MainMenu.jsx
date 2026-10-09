@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { MENU } from '../data/menu.js'
 
 const isExternal = (href) => Boolean(href) && href.startsWith('http')
@@ -14,6 +14,37 @@ function goToFaqGroup(id) {
       : 'smooth',
     block: 'start',
   })
+}
+
+const Row = ({ item, deep, onNavigate }) => {
+  if (item.note) {
+    return (
+      <li className="mrow mrow--static">
+        <span className={`mrow__label${deep ? ' is-deep' : ''}`}>{item.label}</span>
+        <span className="mrow__note">{item.note}</span>
+      </li>
+    )
+  }
+  return (
+    <li>
+      <a
+        className={`mrow__link${deep ? ' is-deep' : ''}`}
+        href={item.href ?? '#faq'}
+        onClick={onNavigate(item)}
+        {...(isExternal(item.href)
+          ? { target: '_blank', rel: 'noopener noreferrer' }
+          : {})}
+      >
+        <span>{item.label}</span>
+        {isExternal(item.href) && (
+          <svg className="mrow__out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M8 16 L16 8" />
+            <path d="M9 8h7v7" />
+          </svg>
+        )}
+      </a>
+    </li>
+  )
 }
 
 export default function MainMenu({ open, onClose }) {
@@ -35,47 +66,19 @@ export default function MainMenu({ open, onClose }) {
     }
   }, [open, onClose])
 
-  const handle = (item) => (e) => {
-    if (item.faq) {
-      e.preventDefault()
-      onClose()
-      // Let the panel unmount before scrolling, or the scroll lock fights it.
-      requestAnimationFrame(() => goToFaqGroup(item.faq))
-      return
-    }
-    if (!isExternal(item.href)) onClose()
-  }
-
-  const Row = ({ item, deep }) => {
-    if (item.note) {
-      return (
-        <li className="mrow mrow--static">
-          <span className={`mrow__label${deep ? ' is-deep' : ''}`}>{item.label}</span>
-          <span className="mrow__note">{item.note}</span>
-        </li>
-      )
-    }
-    return (
-      <li>
-        <a
-          className={`mrow__link${deep ? ' is-deep' : ''}`}
-          href={item.href ?? '#faq'}
-          onClick={handle(item)}
-          {...(isExternal(item.href)
-            ? { target: '_blank', rel: 'noopener noreferrer' }
-            : {})}
-        >
-          <span>{item.label}</span>
-          {isExternal(item.href) && (
-            <svg className="mrow__out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M8 16 L16 8" />
-              <path d="M9 8h7v7" />
-            </svg>
-          )}
-        </a>
-      </li>
-    )
-  }
+  const onNavigate = useCallback(
+    (item) => (e) => {
+      if (item.faq) {
+        e.preventDefault()
+        onClose()
+        // Let the panel close before scrolling, or the scroll lock fights it.
+        requestAnimationFrame(() => goToFaqGroup(item.faq))
+        return
+      }
+      if (!isExternal(item.href)) onClose()
+    },
+    [onClose]
+  )
 
   return (
     <div className={`menu${open ? ' is-open' : ''}`} aria-hidden={!open}>
@@ -133,13 +136,13 @@ export default function MainMenu({ open, onClose }) {
                             </summary>
                             <ul className="msub__list" role="list">
                               {item.children.map((kid) => (
-                                <Row item={kid} key={kid.label} deep />
+                                <Row item={kid} key={kid.label} deep onNavigate={onNavigate} />
                               ))}
                             </ul>
                           </details>
                         </li>
                       ) : (
-                        <Row item={item} key={item.label} />
+                        <Row item={item} key={item.label} onNavigate={onNavigate} />
                       )
                     )}
                   </ul>
