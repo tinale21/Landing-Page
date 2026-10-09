@@ -47,15 +47,17 @@ export default function MainMenu({ open, onClose }) {
   // Escape closes, and the page behind must not scroll while the panel is up.
   useEffect(() => {
     if (!open) return
+    // No body-overflow lock. Mutating it makes mobile browsers re-evaluate the
+    // viewport, and the hero is sized in 100lvh with calc(100lvh - 100svh)
+    // padding — so the whole column visibly re-settles on open. The scrim
+    // swallows touches instead (touch-action: none), and the panel contains
+    // its own overscroll.
     const onKey = (e) => {
       if (e.key === 'Escape') onClose()
     }
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKey)
     closeRef.current?.focus()
     return () => {
-      document.body.style.overflow = prev
       window.removeEventListener('keydown', onKey)
     }
   }, [open, onClose])
