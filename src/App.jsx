@@ -7,6 +7,7 @@ import SiteFooter from './components/SiteFooter.jsx'
 import VenueDetail from './components/VenueDetail.jsx'
 import MainMenu from './components/MainMenu.jsx'
 import LanguagePicker from './components/LanguagePicker.jsx'
+import SearchOverlay from './components/SearchOverlay.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
 import { CATEGORIES } from './data/venues.js'
 import './App.css'
@@ -23,6 +24,7 @@ function findVenue(id) {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const { venueId } = useHashRoute()
   const venue = venueId ? findVenue(venueId) : null
 
@@ -37,6 +39,7 @@ export default function App() {
               menuOpen={menuOpen}
               onToggleMenu={() => setMenuOpen((v) => !v)}
               onOpenLang={() => setLangOpen(true)}
+              onOpenSearch={() => setSearchOpen(true)}
             />
             <main>
               <HistorySection />
@@ -48,6 +51,7 @@ export default function App() {
         )}
         <MainMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
         <LanguagePicker open={langOpen} onClose={() => setLangOpen(false)} />
+        <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
       </div>
     </div>
   )

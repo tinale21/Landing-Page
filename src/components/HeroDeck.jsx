@@ -3,7 +3,7 @@ import { useLang } from '../hooks/useLang.jsx'
 import ScrollCue from './ScrollCue.jsx'
 import { HERO_BACKDROP } from '../data/experiences.js'
 
-export default function HeroDeck({ menuOpen, onToggleMenu, onOpenLang }) {
+export default function HeroDeck({ menuOpen, onToggleMenu, onOpenLang, onOpenSearch }) {
   const { t } = useLang()
   return (
     <header className="deck" id="top">
@@ -17,7 +17,12 @@ export default function HeroDeck({ menuOpen, onToggleMenu, onOpenLang }) {
       <div className="deck__topscrim" aria-hidden="true" />
       <div className="deck__fade" aria-hidden="true" />
 
-      <NavBar open={menuOpen} onToggle={onToggleMenu} onOpenLang={onOpenLang} />
+      <NavBar
+        open={menuOpen}
+        onToggle={onToggleMenu}
+        onOpenLang={onOpenLang}
+        onOpenSearch={onOpenSearch}
+      />
 
       <div className="deck__body">
         <h1 className="deck__title">Burj Khalifa</h1>

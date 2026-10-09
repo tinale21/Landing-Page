@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL
  * the collapsed menu, in this order: brand logo, language switcher,
  * BOOK TICKETS, hamburger. Verified against burjkhalifa.ae in-browser.
  */
-export default function NavBar({ onToggle, open, onOpenLang }) {
+export default function NavBar({ onToggle, open, onOpenLang, onOpenSearch }) {
   const { t } = useLang()
   return (
     <nav className="nav" aria-label="Main">
@@ -27,6 +27,18 @@ export default function NavBar({ onToggle, open, onOpenLang }) {
       </a>
 
       <div className="nav__actions">
+        <button
+          type="button"
+          className="nav__search"
+          aria-label={t('search')}
+          onClick={onOpenSearch}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M20 20 L16.2 16.2" />
+          </svg>
+        </button>
+
         <button type="button" className="nav__lang" aria-label={t('language')}
           onClick={onOpenLang}>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">

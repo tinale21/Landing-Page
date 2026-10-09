@@ -76,6 +76,55 @@ be resized below it, so the *mobile rendering* has still not been seen directly.
 findings come from the DOM, which is viewport-independent, so they hold; the mobile *layout*
 is not yet evidenced. Annotated phone-width screenshots should still land in `claude/docs/`.
 
+## Search Experience (Part 6)
+
+Search indexes the content the site already has — 28 FRQ answers, 16 venues, 6 construction
+milestones, three sections and one booking action — so every result leads somewhere real.
+
+**1 · Five sample searches.** `tickets`, `parking`, `wheelchair`, *"What time does it close?"*,
+*"Can I bring a backpack?"* — three keywords and two natural-language questions. They double
+as the tappable suggestions shown before the user types.
+
+**2 · Entry point.** A search icon in the navigation, opening a full-screen sheet. Chosen over
+a persistent field because the nav already carries four controls on a 390 px screen. The
+placeholder teaches scope rather than saying "Search": *"Search tickets, hours,
+accessibility, events…"*
+
+**3 · Predictive search.** Results refine on every keystroke; there is no submit step.
+
+**4 · Results** carry all five things the brief asks for: title, short description, content
+type, metadata (the FRQ group, or "Temporarily closed"), and **why the result matched** —
+shown as the terms that hit, including synonyms.
+
+**5 · Ranking — intent before keywords.** Two factors: match quality (exact title > prefix >
+contains > body) and content-type weight — Book 100, Visitor info 70, Experience 55, History
+30, Section 20.
+
+So `tickets` returns **Buy Tickets** above every FAQ that mentions the word. Someone typing
+"tickets" overwhelmingly wants to buy one; an article that merely contains the term should not
+outrank the thing they came to do. A query whose every term is found also gets a bonus, so a
+complete answer beats a partial one.
+
+**6 · Filters — one, not three.** Content Type only, and only when a query actually returns
+more than two types. **Date and Audience were deliberately rejected**: this site has no dated
+content and no audience-segmented pages, so both would be controls that filter nothing. The
+brief's test — "would this filter help someone make a decision faster?" — answers no.
+
+**7 · No results.** The query is named back, then four recovery routes are offered. Never a
+bare "No results found".
+
+**The synonym layer** is the part that does the most work, and answers the brief's point about
+user language not matching the organisation's:
+
+| Typed | Returned | Mapping |
+|---|---|---|
+| `dog` | Are service animals permitted? | dog → service animal |
+| `backpack` | Are strollers allowed? (bag storage) | backpack → bag, luggage |
+| "What time does it close?" | What are the opening hours? | close, time → hours, opening |
+
+The brief's own worked example — *"dog entrance"* — returns **8 results** led by the
+service-animals answer, rather than the empty state it was written to illustrate.
+
 ## Platform Rationale
 
 Vite + React 18 (JavaScript, no TypeScript), deployed to GitHub Pages. React earns its place

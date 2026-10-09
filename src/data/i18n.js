@@ -49,6 +49,7 @@ export const STRINGS = {
     withinUae: 'Within the UAE', international: 'International',
     mAbout: 'About Burj Khalifa', mPlan: 'Plan Your Visit', mExperiences: 'Experiences',
     mExplore: 'Explore Dubai', mMore: 'More',
+    search: 'Search', searchPlaceholder: 'Search tickets, hours, accessibility, events…', popularSearches: 'Popular searches', results: 'Results', noResultsFor: 'No results for', tryInstead: 'Try one of these instead', filterAll: 'All',
     englishNote: 'Detailed content is shown in English.',
   },
   ar: {
@@ -64,6 +65,7 @@ export const STRINGS = {
     withinUae: 'داخل الإمارات', international: 'دولي',
     mAbout: 'عن برج خليفة', mPlan: 'خطط لزيارتك', mExperiences: 'التجارب',
     mExplore: 'استكشف دبي', mMore: 'المزيد',
+    search: 'بحث', searchPlaceholder: 'ابحث عن التذاكر، المواعيد، إمكانية الوصول…', popularSearches: 'عمليات بحث شائعة', results: 'النتائج', noResultsFor: 'لا توجد نتائج لـ', tryInstead: 'جرّب أحد هذه بدلاً من ذلك', filterAll: 'الكل',
     englishNote: 'المحتوى التفصيلي معروض باللغة الإنجليزية.',
   },
   ru: {
@@ -79,6 +81,7 @@ export const STRINGS = {
     withinUae: 'В ОАЭ', international: 'Международный',
     mAbout: 'О Бурдж-Халифа', mPlan: 'Планирование визита', mExperiences: 'Впечатления',
     mExplore: 'Исследуйте Дубай', mMore: 'Ещё',
+    search: 'Поиск', searchPlaceholder: 'Билеты, часы работы, доступность, события…', popularSearches: 'Популярные запросы', results: 'Результаты', noResultsFor: 'Ничего не найдено по запросу', tryInstead: 'Попробуйте один из этих вариантов', filterAll: 'Все',
     englishNote: 'Подробное содержание отображается на английском языке.',
   },
   zh: {
@@ -94,6 +97,7 @@ export const STRINGS = {
     withinUae: '阿联酋境内', international: '国际',
     mAbout: '关于哈利法塔', mPlan: '规划您的参观', mExperiences: '体验',
     mExplore: '探索迪拜', mMore: '更多',
+    search: '搜索', searchPlaceholder: '搜索门票、开放时间、无障碍设施、活动…', popularSearches: '热门搜索', results: '搜索结果', noResultsFor: '未找到相关结果：', tryInstead: '试试以下内容', filterAll: '全部',
     englishNote: '详细内容以英文显示。',
   },
   hi: {
@@ -109,6 +113,7 @@ export const STRINGS = {
     withinUae: 'यूएई में', international: 'अंतरराष्ट्रीय',
     mAbout: 'बुर्ज खलीफा के बारे में', mPlan: 'अपनी यात्रा की योजना', mExperiences: 'अनुभव',
     mExplore: 'दुबई देखें', mMore: 'अधिक',
+    search: 'खोजें', searchPlaceholder: 'टिकट, समय, सुगम्यता, कार्यक्रम खोजें…', popularSearches: 'लोकप्रिय खोजें', results: 'परिणाम', noResultsFor: 'कोई परिणाम नहीं मिला:', tryInstead: 'इनमें से कोई आज़माएँ', filterAll: 'सभी',
     englishNote: 'विस्तृत सामग्री अंग्रेज़ी में दिखाई गई है।',
   },
   ur: {
@@ -124,6 +129,7 @@ export const STRINGS = {
     withinUae: 'یو اے ای میں', international: 'بین الاقوامی',
     mAbout: 'برج خلیفہ کے بارے میں', mPlan: 'اپنے دورے کی منصوبہ بندی', mExperiences: 'تجربات',
     mExplore: 'دبئی دریافت کریں', mMore: 'مزید',
+    search: 'تلاش', searchPlaceholder: 'ٹکٹ، اوقات، رسائی، تقریبات تلاش کریں…', popularSearches: 'مقبول تلاشیں', results: 'نتائج', noResultsFor: 'کوئی نتیجہ نہیں ملا:', tryInstead: 'ان میں سے کوئی آزمائیں', filterAll: 'سب',
     englishNote: 'تفصیلی مواد انگریزی میں دکھایا گیا ہے۔',
   },
   fr: {
@@ -139,6 +145,7 @@ export const STRINGS = {
     withinUae: 'Depuis les Émirats', international: 'International',
     mAbout: 'À propos du Burj Khalifa', mPlan: 'Préparer votre visite', mExperiences: 'Expériences',
     mExplore: 'Découvrir Dubaï', mMore: 'Plus',
+    search: 'Rechercher', searchPlaceholder: 'Billets, horaires, accessibilité, événements…', popularSearches: 'Recherches fréquentes', results: 'Résultats', noResultsFor: 'Aucun résultat pour', tryInstead: 'Essayez plutôt ceci', filterAll: 'Tout',
     englishNote: 'Le contenu détaillé est affiché en anglais.',
   },
   de: {
@@ -154,6 +161,7 @@ export const STRINGS = {
     withinUae: 'Innerhalb der VAE', international: 'International',
     mAbout: 'Über den Burj Khalifa', mPlan: 'Besuch planen', mExperiences: 'Erlebnisse',
     mExplore: 'Dubai entdecken', mMore: 'Mehr',
+    search: 'Suche', searchPlaceholder: 'Tickets, Öffnungszeiten, Barrierefreiheit, Events…', popularSearches: 'Häufige Suchen', results: 'Ergebnisse', noResultsFor: 'Keine Ergebnisse für', tryInstead: 'Versuchen Sie stattdessen', filterAll: 'Alle',
     englishNote: 'Ausführliche Inhalte werden auf Englisch angezeigt.',
   },
   es: {
@@ -169,6 +177,7 @@ export const STRINGS = {
     withinUae: 'Dentro de los EAU', international: 'Internacional',
     mAbout: 'Sobre el Burj Khalifa', mPlan: 'Planifica tu visita', mExperiences: 'Experiencias',
     mExplore: 'Descubre Dubái', mMore: 'Más',
+    search: 'Buscar', searchPlaceholder: 'Entradas, horarios, accesibilidad, eventos…', popularSearches: 'Búsquedas frecuentes', results: 'Resultados', noResultsFor: 'Sin resultados para', tryInstead: 'Prueba con esto', filterAll: 'Todo',
     englishNote: 'El contenido detallado se muestra en inglés.',
   },
   it: {
@@ -184,6 +193,7 @@ export const STRINGS = {
     withinUae: 'Dagli Emirati', international: 'Internazionale',
     mAbout: 'Il Burj Khalifa', mPlan: 'Pianifica la visita', mExperiences: 'Esperienze',
     mExplore: 'Scopri Dubai', mMore: 'Altro',
+    search: 'Cerca', searchPlaceholder: 'Biglietti, orari, accessibilità, eventi…', popularSearches: 'Ricerche frequenti', results: 'Risultati', noResultsFor: 'Nessun risultato per', tryInstead: 'Prova invece questi', filterAll: 'Tutti',
     englishNote: 'I contenuti dettagliati sono mostrati in inglese.',
   },
   ja: {
@@ -199,6 +209,7 @@ export const STRINGS = {
     withinUae: 'UAE国内', international: '国際',
     mAbout: 'ブルジュ・ハリファについて', mPlan: '訪問の計画', mExperiences: '体験',
     mExplore: 'ドバイを巡る', mMore: 'その他',
+    search: '検索', searchPlaceholder: 'チケット、営業時間、アクセシビリティ、イベント…', popularSearches: 'よく検索される項目', results: '検索結果', noResultsFor: '該当する結果がありません：', tryInstead: 'こちらをお試しください', filterAll: 'すべて',
     englishNote: '詳細な内容は英語で表示されます。',
   },
   ko: {
@@ -214,6 +225,7 @@ export const STRINGS = {
     withinUae: 'UAE 내', international: '국제',
     mAbout: '부르즈 할리파 소개', mPlan: '방문 계획', mExperiences: '경험',
     mExplore: '두바이 둘러보기', mMore: '더보기',
+    search: '검색', searchPlaceholder: '티켓, 운영 시간, 접근성, 행사 검색…', popularSearches: '인기 검색어', results: '검색 결과', noResultsFor: '검색 결과가 없습니다:', tryInstead: '대신 이것을 시도해 보세요', filterAll: '전체',
     englishNote: '상세 내용은 영어로 표시됩니다.',
   },
 }
