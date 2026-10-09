@@ -43,7 +43,7 @@ export const MENU = [
     id: 'plan',
     titleKey: 'mPlan',
     items: [
-      { label: 'Tickets & Pricing', faq: 'tickets' },
+      { label: 'Tickets & Pricing', href: '#/tickets' },
       { label: 'Hours', faq: 'visiting' },
       { label: 'Parking', faq: 'getting-there' },
       { label: 'Accessibility', faq: 'accessibility' },

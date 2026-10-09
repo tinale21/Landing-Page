@@ -1,5 +1,6 @@
 import { FAQ_GROUPS } from '../data/faq.js'
 import { CATEGORIES } from '../data/venues.js'
+import { TIERS } from '../data/tickets.js'
 import { MILESTONES } from '../data/history.js'
 
 /**
@@ -108,12 +109,23 @@ export function buildIndex() {
     id: 'buy-tickets',
     type: 'action',
     title: 'Buy Tickets',
-    desc: 'Book an observation deck time slot on the official ticketing site.',
-    meta: 'From $51 · opens ticket.atthetop.ae',
-    href: 'https://ticket.atthetop.ae/',
-    external: true,
-    body: 'tickets ticket buy book booking price prices admission entry slot',
+    desc: 'Compare the three observation decks, then book on the official site.',
+    meta: 'From AED 189',
+    href: '#/tickets',
+    body: 'tickets ticket buy book booking price prices cost admission entry slot',
   })
+
+  for (const x of TIERS) {
+    idx.push({
+      id: `tier-${x.id}`,
+      type: 'action',
+      title: `${x.tier} · ${x.name}`,
+      desc: trim(x.blurb, 130),
+      meta: `${x.levels} · AED ${x.aed}`,
+      href: '#/tickets',
+      body: `${x.tier} ${x.name} ${x.levels} ${x.blurb} ticket tickets price cost book ${x.metres} metres`,
+    })
+  }
 
   for (const g of FAQ_GROUPS) {
     for (const item of g.items) {

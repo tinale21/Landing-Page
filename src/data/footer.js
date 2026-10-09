@@ -14,7 +14,7 @@ export const FOOTER_COLUMNS = [
       { label: 'The Making', href: '#history' },
       { label: 'Experiences', href: '#experiences' },
       { label: 'Questions', href: '#faq' },
-      { label: 'Book Tickets', href: 'https://ticket.atthetop.ae/' },
+      { label: 'Book Tickets', href: '#/tickets' },
     ],
   },
   {

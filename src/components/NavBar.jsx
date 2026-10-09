@@ -48,7 +48,7 @@ export default function NavBar({ onToggle, open, onOpenLang, onOpenSearch }) {
           </svg>
         </button>
 
-        <a className="nav__tickets" href="#tickets">
+        <a className="nav__tickets" href="#/tickets">
           {t('bookTickets')}
         </a>
 

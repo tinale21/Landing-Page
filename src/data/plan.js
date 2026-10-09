@@ -16,13 +16,12 @@ export const PLAN_TOPICS = [
     id: 'tickets',
     title: 'Tickets & Pricing',
     src: img('at-the-top.jpg'),
-    intro: 'Three decks at three heights. Prices vary by time slot, and the final figure is confirmed at checkout.',
+    intro: 'Three decks at three heights. Prices are per person and the final figure is confirmed at checkout.',
     facts: [
-      ['At The Top · Levels 124 & 125', 'from $51'],
-      ['At The Top SKY · Level 148', 'from $108'],
-      ['The Lounge · Levels 152–154', 'from $155'],
+      ['Silver · Levels 124 & 125', 'AED 189'],
+      ['Gold · Levels 124, 125 & 148', 'AED 399'],
+      ['Platinum · Levels 152–154', 'AED 769'],
       ['Children under 3', 'free'],
-      ['Prime hours', 'priced higher'],
     ],
   },
   {

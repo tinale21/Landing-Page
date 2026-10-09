@@ -10,6 +10,7 @@ import LanguagePicker from './components/LanguagePicker.jsx'
 import SearchOverlay from './components/SearchOverlay.jsx'
 import PlanPage from './components/PlanPage.jsx'
 import AboutPage from './components/AboutPage.jsx'
+import TicketsPage from './components/TicketsPage.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
 import { CATEGORIES } from './data/venues.js'
 import './App.css'
@@ -47,7 +48,9 @@ export default function App() {
   return (
     <div className="frame">
       <div className="phone">
-        {page === 'about' ? (
+        {page === 'tickets' ? (
+          <TicketsPage onBack={() => window.history.back()} />
+        ) : page === 'about' ? (
           <AboutPage onBack={() => window.history.back()} />
         ) : page === 'plan' ? (
           <PlanPage onBack={() => window.history.back()} />
