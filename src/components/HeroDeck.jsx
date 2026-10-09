@@ -30,10 +30,10 @@ export default function HeroDeck({ menuOpen, onToggleMenu, onOpenLang, onOpenSea
         <p className="deck__sub">{t('heroSub')}</p>
 
         <div className="deck__actions">
-          <a className="pill pill--solid" href="#about">
+          <a className="pill pill--solid" href="#history">
             {t('about')}
           </a>
-          <a className="pill pill--outline" href="#plan">
+          <a className="pill pill--plain" href="#/plan">
             {t('planTrip')}
           </a>
         </div>

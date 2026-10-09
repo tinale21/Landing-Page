@@ -216,10 +216,13 @@
   box-shadow: 0 0.5rem 1rem rgba(21, 17, 13, 0.24);
 }
 
-.pill--outline {
+/* Soft grey edge and a lifted shadow, so it reads as a button beside the
+   solid one without the hard inset ring it had before. */
+.pill--plain {
   background: var(--paper);
   color: var(--ink);
-  box-shadow: inset 0 0 0 1px var(--hairline);
+  border: 1px solid rgba(21, 17, 13, 0.12);
+  box-shadow: 0 0.1875rem 0.5rem rgba(21, 17, 13, 0.09);
 }
 
 .pill:active {
@@ -1877,3 +1880,107 @@
     transition: none;
   }
 }
+
+  }
+}
+
+/* ---------- plan your visit page ---------- */
+.planpg {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.planpg__hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 13rem;
+  margin: 0 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background-size: cover;
+  background-position: center 42%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.planpg__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(6, 9, 16, 0.9) 0%,
+    rgba(6, 9, 16, 0.55) 45%,
+    rgba(6, 9, 16, 0.15) 100%
+  );
+}
+
+.planpg__lede {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- topic ---------- */
+.topic {
+  padding: 2.25rem 1.5rem 0;
+}
+
+.topic__img {
+  height: 9rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.topic__title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.topic__intro {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.topic__facts {
+  margin: 1.125rem 0 0;
+  display: grid;
+  gap: 1px;
+  background: var(--hairline);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.tfact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8125rem 1rem;
+  background: #faf9f7;
+}
+
+.tfact dt {
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+.tfact dd {
+  margin: 0;
+  flex: 0 0 auto;
+  max-width: 55%;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+

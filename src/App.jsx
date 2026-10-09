@@ -8,6 +8,7 @@ import VenueDetail from './components/VenueDetail.jsx'
 import MainMenu from './components/MainMenu.jsx'
 import LanguagePicker from './components/LanguagePicker.jsx'
 import SearchOverlay from './components/SearchOverlay.jsx'
+import PlanPage from './components/PlanPage.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
 import { CATEGORIES } from './data/venues.js'
 import './App.css'
@@ -25,13 +26,15 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const { venueId } = useHashRoute()
+  const { venueId, page } = useHashRoute()
   const venue = venueId ? findVenue(venueId) : null
 
   return (
     <div className="frame">
       <div className="phone">
-        {venue ? (
+        {page === 'plan' ? (
+          <PlanPage onBack={() => window.history.back()} />
+        ) : venue ? (
           <VenueDetail venue={venue} onBack={() => window.history.back()} />
         ) : (
           <>

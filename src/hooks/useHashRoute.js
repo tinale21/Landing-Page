@@ -15,6 +15,10 @@ export function useHashRoute() {
     return () => window.removeEventListener('hashchange', onChange)
   }, [])
 
-  const match = route.match(/^\/venue\/([\w-]+)$/)
-  return { venueId: match ? match[1] : null }
+  const venue = route.match(/^\/venue\/([\w-]+)$/)
+  const page = route.match(/^\/([\w-]+)$/)
+  return {
+    venueId: venue ? venue[1] : null,
+    page: !venue && page ? page[1] : null,
+  }
 }
