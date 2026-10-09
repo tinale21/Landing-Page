@@ -108,7 +108,7 @@ export const CATEGORIES = [
       {
         id: 'at-the-top',
         name: 'At The Top',
-        blurb: 'Levels 124 and 125, at 456 metres — Dubai’s best-known viewpoint.',
+        blurb: 'Levels 124 and 125, at 456 metres. Dubai’s best-known viewpoint.',
         src: img('at-the-top.jpg'),
         tint: 'linear-gradient(150deg, #7d98ad, #27333f)',
       },

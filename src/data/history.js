@@ -15,7 +15,7 @@ export const MILESTONES = [
     src: img('ms-foundation.jpg'),
     when: '2004 – 2005',
     title: 'Foundation Phase',
-    text: 'The journey began with preparing the site and building a strong foundation — a massive concrete base and deep piles to hold the tower on Dubai’s sandy terrain.',
+    text: 'The journey began with preparing the site and building a strong foundation: a massive concrete base and deep piles to hold the tower on Dubai’s sandy terrain.',
     rise: 0.04,
   },
   {
@@ -39,7 +39,7 @@ export const MILESTONES = [
     src: img('ms-tallest.jpg'),
     when: 'March 2007',
     title: 'Tallest to Roof',
-    text: 'Burj Khalifa surpassed Taipei 101 to become the world’s tallest building by roof height — still almost three years from opening.',
+    text: 'Burj Khalifa surpassed Taipei 101 to become the world’s tallest building by roof height, almost three years before it opened.',
     rise: 0.72,
   },
   {
@@ -47,7 +47,7 @@ export const MILESTONES = [
     src: img('ms-cladding.jpg'),
     when: 'September 2009',
     title: 'Exterior Completed',
-    text: 'The exterior cladding was completed and Emaar announced the finished façade — more than 26,000 glass panels, a year after structural work topped out.',
+    text: 'The exterior cladding was completed and Emaar announced the finished façade of more than 26,000 glass panels, a year after structural work topped out.',
     rise: 1,
   },
   {

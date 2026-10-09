@@ -16,7 +16,7 @@ export const PLAN_TOPICS = [
     id: 'tickets',
     title: 'Tickets & Pricing',
     src: img('at-the-top.jpg'),
-    intro: 'Three decks at three heights. Prices move with the time slot, so the figure you see at checkout is the one that counts.',
+    intro: 'Three decks at three heights. Prices vary by time slot, and the final figure is confirmed at checkout.',
     facts: [
       ['At The Top · Levels 124 & 125', 'from $51'],
       ['At The Top SKY · Level 148', 'from $108'],
@@ -29,7 +29,7 @@ export const PLAN_TOPICS = [
     id: 'hours',
     title: 'Hours',
     src: img('at-the-top-sky.jpg'),
-    intro: 'The observation decks run the same hours every day. Level 148 is timed; the decks below it are not.',
+    intro: 'The observation decks keep the same hours every day. Level 148 is timed, while the decks below it are not.',
     facts: [
       ['Open daily', '10:00 – 20:00'],
       ['Last entry', '19:00'],
@@ -42,7 +42,7 @@ export const PLAN_TOPICS = [
     id: 'getting-there',
     title: 'Getting There',
     src: img('dubai-mall.jpg'),
-    intro: 'The entrance is inside The Dubai Mall, not at the base of the tower — the single thing most visitors get wrong.',
+    intro: 'The entrance is inside The Dubai Mall rather than at the base of the tower itself. Allow a little time to cross the mall to it.',
     facts: [
       ['Entrance', 'Lower Ground Level, The Dubai Mall'],
       ['Parking', 'Fashion Avenue car park'],
@@ -54,7 +54,7 @@ export const PLAN_TOPICS = [
     id: 'accessibility',
     title: 'Accessibility',
     src: img('observation-decks.jpg'),
-    intro: 'The route is step-free throughout. Two rules catch people out, so they are worth reading before you book.',
+    intro: 'The route is step-free throughout. Two policies are worth reading before you book, as they may affect your plans.',
     facts: [
       ['Wheelchair access', 'entire experience'],
       ['Service animals', 'not permitted on the tour'],
@@ -66,7 +66,7 @@ export const PLAN_TOPICS = [
     id: 'amenities',
     title: 'Visitor Information',
     src: img('fine-dining.jpg'),
-    intro: 'What you can bring, what is waiting for you inside, and what the photo rules actually are.',
+    intro: 'What you can bring with you, what is available inside, and the photography policy.',
     facts: [
       ['Wi-Fi', 'complimentary throughout'],
       ['Cafés', 'ground level and Level 124'],

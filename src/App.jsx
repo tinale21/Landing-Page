@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import HeroDeck from './components/HeroDeck.jsx'
 import HistorySection from './components/HistorySection.jsx'
 import ExperienceSection from './components/ExperienceSection.jsx'
@@ -26,8 +26,22 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const { venueId, page } = useHashRoute()
+  const { venueId, page, section } = useHashRoute()
   const venue = venueId ? findVenue(venueId) : null
+
+  // A bare hash such as #history routes home. The browser's own scroll-to-
+  // anchor fires before this renders, so do it once the section exists.
+  useEffect(() => {
+    if (!section) return
+    requestAnimationFrame(() => {
+      document.getElementById(section)?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'auto'
+          : 'smooth',
+        block: 'start',
+      })
+    })
+  }, [section])
 
   return (
     <div className="frame">
@@ -49,9 +63,12 @@ export default function App() {
               <ExperienceSection />
               <FaqSection />
             </main>
-            <SiteFooter />
           </>
         )}
+
+        {/* Outside the route branch: every page gets the footer. */}
+        <SiteFooter />
+
         <MainMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
         <LanguagePicker open={langOpen} onClose={() => setLangOpen(false)} />
         <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />

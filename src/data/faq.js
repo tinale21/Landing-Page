@@ -28,11 +28,11 @@ export const FAQ_GROUPS = [
       },
       {
         q: 'Can I buy tickets at the entrance?',
-        a: 'Yes. Pre-booking is not required, but the operator recommends buying in advance so you get the time you want — peak slots sell out.',
+        a: 'Yes. Pre-booking is not required, but the operator recommends buying in advance so you get the time you want, as peak slots sell out.',
       },
       {
         q: 'Can I change or cancel my booking?',
-        a: 'There are no refunds or rain checks for bad weather — the indoor decks stay open. For changes and cancellations generally, check the terms shown at checkout, as they vary by ticket type.',
+        a: 'There are no refunds or rain checks for bad weather, and the indoor decks stay open. For changes and cancellations generally, check the terms shown at checkout, as they vary by ticket type.',
       },
       {
         q: 'Do children need a ticket?',
@@ -50,7 +50,7 @@ export const FAQ_GROUPS = [
       },
       {
         q: 'Is there a Metro station nearby?',
-        a: 'Yes — Burj Khalifa Metro Station on the Red Line, connected to The Dubai Mall.',
+        a: 'Yes. Burj Khalifa Metro Station on the Red Line connects directly to The Dubai Mall.',
       },
       {
         q: 'How do I get from Dubai Mall to the Burj Khalifa?',
@@ -72,7 +72,7 @@ export const FAQ_GROUPS = [
       },
       {
         q: 'Which entrance do I use?',
-        a: 'The Lower Ground Level of The Dubai Mall — not the base of the tower itself.',
+        a: 'The Lower Ground Level of The Dubai Mall, rather than the base of the tower itself.',
       },
       {
         q: 'How do I get to the Burj Khalifa?',
@@ -80,11 +80,11 @@ export const FAQ_GROUPS = [
       },
       {
         q: 'How early should I arrive before my time slot?',
-        a: 'Well in advance. The operator does not give a fixed figure — peak times bring large crowds and queueing varies, so leave yourself margin.',
+        a: 'Well in advance. The operator does not give a fixed figure. Peak times bring larger crowds and queueing varies, so it is worth allowing extra time.',
       },
       {
         q: 'Is there a time limit for visiting?',
-        a: 'Only on Level 148, which is capped at 30 minutes. Levels 124 and 125 have no limit — you can stay as long as you want.',
+        a: 'Only on Level 148, which is capped at 30 minutes. Levels 124 and 125 have no limit, so you can stay as long as you like.',
       },
     ],
   },
@@ -94,7 +94,7 @@ export const FAQ_GROUPS = [
     items: [
       {
         q: 'What is the difference between Levels 124 & 125 and Level 148?',
-        a: 'Levels 124 and 125 sit at 456 metres: Level 124 has an open-air terrace, Level 125 is enclosed in glass, and both have viewing telescopes. Level 148 is at 555 metres — the world’s highest outdoor observatory — and comes with fast-track entry and lounge service.',
+        a: 'Levels 124 and 125 sit at 456 metres: Level 124 has an open-air terrace, Level 125 is enclosed in glass, and both have viewing telescopes. Level 148 sits at 555 metres, the world’s highest outdoor observatory, and includes fast-track entry and lounge service.',
       },
       {
         q: 'Can I visit multiple observation decks with one ticket?',
@@ -102,7 +102,7 @@ export const FAQ_GROUPS = [
       },
       {
         q: 'Is the outdoor observation deck open?',
-        a: 'Usually. Level 124’s open-air terrace can close during bad weather for safety, and there are no refunds if that happens — the indoor decks stay open.',
+        a: 'Usually. Level 124’s open-air terrace can close during bad weather for safety, and there are no refunds if that happens, though the indoor decks remain open.',
       },
       {
         q: 'Can I take photos and videos?',
@@ -151,7 +151,7 @@ export const FAQ_GROUPS = [
       },
       {
         q: 'Are there restrooms?',
-        a: 'Not covered in the official visitor information — worth confirming with the attraction.',
+        a: 'This is not covered in the official visitor information. We recommend confirming with the attraction directly.',
         unverified: true,
       },
       {

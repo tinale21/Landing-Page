@@ -17,8 +17,12 @@ export function useHashRoute() {
 
   const venue = route.match(/^\/venue\/([\w-]+)$/)
   const page = route.match(/^\/([\w-]+)$/)
+  // A bare hash with no leading slash is an in-page section, not a route.
+  const section = /^[\w-]+$/.test(route) ? route : null
+
   return {
     venueId: venue ? venue[1] : null,
     page: !venue && page ? page[1] : null,
+    section,
   }
 }

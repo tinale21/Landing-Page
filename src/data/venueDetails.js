@@ -29,7 +29,7 @@ export const DETAILS = {
   amal: {
     level: 'Armani Hotel, Burj Khalifa',
     about:
-      'Savour the true taste of Indian cuisine prepared tableside using traditional cooking methods, and dine while overlooking the Dubai Fountain. The terrace is the draw — tables sit directly above Burj Lake, close enough to feel the fountain shows.',
+      'Savour the true taste of Indian cuisine prepared tableside using traditional cooking methods, and dine while overlooking the Dubai Fountain. The terrace is the highlight, with tables set directly above Burj Lake, close enough to feel the fountain shows.',
     hours: CLOSED,
   },
   hashi: {
@@ -75,7 +75,7 @@ export const DETAILS = {
   'at-the-top-sky': {
     level: 'Level 148',
     about:
-      'Delight in panoramic views from the observation deck located on Level 148 in Burj Khalifa Dubai — the world’s highest outdoor observatory at 555 metres. Relax with refreshments and explore the exclusive outdoor terrace. Entry includes fast-track access and a guided tour.',
+      'Delight in panoramic views from the observation deck located on Level 148 in Burj Khalifa Dubai, the world’s highest outdoor observatory at 555 metres. Relax with refreshments and explore the exclusive outdoor terrace. Entry includes fast-track access and a guided tour.',
     hours: {
       rows: [
         ['Daily', '10:00 – 20:00'],
@@ -101,7 +101,7 @@ export const DETAILS = {
   'armani-spa': {
     level: 'Armani Hotel, Burj Khalifa',
     about:
-      'An oasis of peace and tranquillity reflecting Armani lifestyle and design philosophies, with the splendour and magnitude of Burj Khalifa. A tranquil space with relaxation rooms, spa services, personal fitness and more — all reflecting the unique Armani design and lifestyle.',
+      'An oasis of peace and tranquillity reflecting Armani lifestyle and design philosophies, with the splendour and magnitude of Burj Khalifa. A tranquil space with relaxation rooms, spa services, personal fitness and more, all reflecting the unique Armani design and lifestyle.',
     hours: CLOSED,
   },
 
@@ -126,7 +126,7 @@ export const DETAILS = {
   'sky-views': {
     level: 'Address Sky View, Downtown Dubai',
     about:
-      'More than just another observation deck, Sky Views Observatory is a thrilling, one-of-a-kind attraction and the gateway to three activities: the Glass Slide, the Observatory, and the Edge Walk — a hands-free walk around the outside of the building, 219 metres up.',
+      'More than just another observation deck, Sky Views Observatory is a thrilling, one-of-a-kind attraction and the gateway to three activities: the Glass Slide, the Observatory, and the Edge Walk, a hands-free walk around the outside of the building 219 metres up.',
     hours: {
       rows: [
         ['Observatory & Glass Slide', '10:30 – 21:00'],
@@ -137,7 +137,7 @@ export const DETAILS = {
   'dubai-mall': {
     level: 'Downtown Dubai',
     about:
-      'Dubai Mall is the ultimate retail and lifestyle destination, where extraordinary experiences await. From exclusive shopping to delectable dining and world-class entertainment, Dubai Mall has everything you desire and more — including the aquarium, the ice rink and direct access to the tower.',
+      'Dubai Mall is the ultimate retail and lifestyle destination, where extraordinary experiences await. From exclusive shopping to delectable dining and world-class entertainment, Dubai Mall has everything you desire and more, including the aquarium, the ice rink and direct access to the tower.',
     hours: {
       rows: [
         ['Sun – Wed', '10:00 – 23:00'],
@@ -153,7 +153,7 @@ export const DETAILS = {
  * sample notice in the UI. Do not present these as genuine feedback.
  */
 export const SAMPLE_REVIEWS = [
-  { who: 'Sample review', stars: 5, text: 'Placeholder text used to show how a review renders in this layout.' },
-  { who: 'Sample review', stars: 4, text: 'Second placeholder entry, written to a different length so the card spacing can be checked.' },
-  { who: 'Sample review', stars: 5, text: 'Third placeholder entry. Real review content would be sourced before this screen ships.' },
+  { who: 'Sample review', stars: 5, text: 'Sample text shown in place of a visitor review.' },
+  { who: 'Sample review', stars: 4, text: 'A second sample entry, included to show how a longer comment appears in this space.' },
+  { who: 'Sample review', stars: 5, text: 'A third sample entry, of a different length again.' },
 ]

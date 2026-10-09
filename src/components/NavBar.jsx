@@ -11,7 +11,7 @@ export default function NavBar({ onToggle, open, onOpenLang, onOpenSearch }) {
   const { t } = useLang()
   return (
     <nav className="nav" aria-label="Main">
-      <a className="nav__logo" href="#top" aria-label="Burj Khalifa — home">
+      <a className="nav__logo" href="#top" aria-label="Burj Khalifa, home">
         <img
           className="nav__logo-img"
           src={`${base}images/logo.svg`}

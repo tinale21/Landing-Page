@@ -29,8 +29,8 @@ export default function PlanPage({ onBack }) {
       >
         <span className="planpg__scrim" aria-hidden="true" />
         <p className="planpg__lede">
-          Everything you need before you come — tickets, hours, how to get in,
-          and what to expect once you are inside.
+          Everything you need before you visit: tickets, hours, how to find
+          the entrance, and what to expect once you are inside.
         </p>
       </div>
 
