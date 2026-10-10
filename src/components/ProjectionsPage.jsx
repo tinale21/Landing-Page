@@ -75,11 +75,11 @@ export default function ProjectionsPage({ onBack, onMenu }) {
       <section className="topic" aria-labelledby="proj-art">
         <h2 className="topic__title" id="proj-art">Not a commercial booking?</h2>
         <p className="topic__intro">
-          Emaar also runs Open Call, a competition for artists and designers to
-          have their own work shown on the facade.
+          Emaar also runs an open call, a competition for artists and
+          designers to have their own work shown on the facade.
         </p>
         <a className="fpage__link" href="#/open-call">
-          See Open Call
+          See creative opportunities
         </a>
       </section>
     </div>

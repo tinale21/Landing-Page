@@ -2,8 +2,12 @@ const base = import.meta.env.BASE_URL
 const img = (f) => `${base}images/${f}`
 
 /**
- * Facade programmes: the commercial projection enquiry, and Emaar's Open Call
- * design competition.
+ * Facade programmes: the commercial projection enquiry, and Emaar's open
+ * call design competition.
+ *
+ * The pages are titled "Light Shows & Projections" and "Creative
+ * Opportunities" here. Emaar's own name for the competition, Open Call, is
+ * kept wherever the copy points at their page, so a reader can find it.
  *
  * Read off burjkhalifa.ae/commercial-projections/ and /open-call/ in October
  * 2026. The projections page is a single paragraph and an enquiry form, so the

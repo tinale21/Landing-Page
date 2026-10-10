@@ -171,8 +171,8 @@ export function buildIndex() {
     { id: 'sec-history', type: 'section', title: 'The Making of Burj Khalifa', desc: 'How the tower was built, from foundation to opening.', meta: 'Section', href: '#history', body: 'history making construction timeline built' },
     { id: 'sec-exp', type: 'section', title: 'Experiences', desc: 'Observation decks, dining, stays, wellness and what is nearby.', meta: 'Section', href: '#experiences', body: 'experiences dining stays wellness decks nearby' },
     { id: 'sec-faq', type: 'section', title: 'Questions', desc: 'Tickets, hours, getting there, accessibility and amenities.', meta: 'Section', href: '#faq', body: 'faq questions help' },
-    { id: 'sec-projections', type: 'section', title: 'Events & Projections', desc: 'Booking the facade as a commercial canvas, and what the enquiry asks for.', meta: 'Section', href: '#/projections', body: 'events projections projection facade commercial brand advertising canvas enquiry booking' },
-    { id: 'sec-opencall', type: 'section', title: 'Open Call', desc: 'Emaar\u2019s projection design competition for artists and designers.', meta: 'Section', href: '#/open-call', body: 'open call competition contest artists designers submission projection design entry deadline' }
+    { id: 'sec-projections', type: 'section', title: 'Light Shows & Projections', desc: 'Booking the facade as a commercial canvas, and what the enquiry asks for.', meta: 'Section', href: '#/projections', body: 'light show shows projections projection facade commercial brand advertising canvas enquiry booking events' },
+    { id: 'sec-opencall', type: 'section', title: 'Creative Opportunities', desc: 'Emaar\u2019s open call, a projection design competition for artists and designers.', meta: 'Section', href: '#/open-call', body: 'creative opportunities open call competition contest artists designers submission projection design entry deadline' }
   )
 
   for (const e of idx) e._body = e.body.toLowerCase()
