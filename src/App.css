@@ -596,9 +596,19 @@
 .dpanes {
   display: flex;
   overflow-x: auto;
+  /* Height is driven from JS to match the visible pane; clip the taller
+     neighbour instead of letting it spill over the map below. */
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  transition: height 0.22s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dpanes {
+    transition: none;
+  }
 }
 
 .dpanes::-webkit-scrollbar {
@@ -2592,4 +2602,112 @@
   height: 2px;
   border-radius: 2px;
   background: var(--ink);
+}
+
+/* ---------- detail: official site link ---------- */
+.dsite {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6875rem 0.875rem;
+  border: 1px solid var(--hairline);
+  border-radius: 0.625rem;
+  background: #faf9f7;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.dsite__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.dsite__host {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: end;
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}
+
+.dsite .mrow__out {
+  flex: 0 0 auto;
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- detail: location ---------- */
+.dmap {
+  padding: 1.75rem 1.25rem 2rem;
+}
+
+.dmap__h {
+  margin: 0 0 0.75rem;
+  font-family: var(--ui);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.dmap__card {
+  display: block;
+  border: 1px solid var(--hairline);
+  border-radius: 0.875rem;
+  overflow: hidden;
+  background: var(--paper);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.dmap__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dmap__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.dmap__place {
+  min-width: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.dmap__cta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b5425;
+}
+
+.dmap__cta .mrow__out {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
