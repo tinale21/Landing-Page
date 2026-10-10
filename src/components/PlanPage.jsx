@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
+import PageHeader from './PageHeader.jsx'
 import { PLAN_TOPICS, PLAN_HERO } from '../data/plan.js'
 import { useLang } from '../hooks/useLang.jsx'
 
-export default function PlanPage({ onBack }) {
+export default function PlanPage({ onBack, onMenu }) {
   const { t } = useLang()
 
   useEffect(() => {
@@ -11,15 +12,7 @@ export default function PlanPage({ onBack }) {
 
   return (
     <div className="planpg">
-      <header className="dhead">
-        <button type="button" className="dhead__back" onClick={onBack} aria-label={t('close')}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 4 L7 12 L15 20" />
-          </svg>
-        </button>
-        <h1 className="dhead__title">{t('mPlan')}</h1>
-        <span className="dhead__spacer" aria-hidden="true" />
-      </header>
+      <PageHeader title={t('mPlan')} onBack={onBack} onMenu={onMenu} />
 
       <div
         className="planpg__hero"

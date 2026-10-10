@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import PageHeader from './PageHeader.jsx'
 import { DETAILS, SAMPLE_REVIEWS } from '../data/venueDetails.js'
 
 const TABS = ['About', 'Hours', 'Reviews']
@@ -12,7 +13,7 @@ function Stars({ n }) {
   )
 }
 
-export default function VenueDetail({ venue, onBack }) {
+export default function VenueDetail({ venue, onBack, onMenu }) {
   const d = DETAILS[venue.id] ?? {}
   const [tab, setTab] = useState(0)
   const [expanded, setExpanded] = useState(false)
@@ -50,15 +51,7 @@ export default function VenueDetail({ venue, onBack }) {
 
   return (
     <div className="detail">
-      <header className="dhead">
-        <button type="button" className="dhead__back" onClick={onBack} aria-label="Back">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 4 L7 12 L15 20" />
-          </svg>
-        </button>
-        <h1 className="dhead__title">Details</h1>
-        <span className="dhead__spacer" aria-hidden="true" />
-      </header>
+      <PageHeader title="Details" onBack={onBack} onMenu={onMenu} />
 
       <div
         className="dhero"

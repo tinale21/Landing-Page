@@ -14,6 +14,7 @@ import TicketsPage from './components/TicketsPage.jsx'
 import ProjectionsPage from './components/ProjectionsPage.jsx'
 import OpenCallPage from './components/OpenCallPage.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
+import { goBack } from './lib/navigate.js'
 import { CATEGORIES } from './data/venues.js'
 import './App.css'
 
@@ -32,6 +33,7 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false)
   const { venueId, page, anchor, section } = useHashRoute()
   const venue = venueId ? findVenue(venueId) : null
+  const openMenu = () => setMenuOpen(true)
 
   // A bare hash such as #history routes home. The browser's own scroll-to-
   // anchor fires before this renders, so do it once the section exists.
@@ -51,17 +53,17 @@ export default function App() {
     <div className="frame">
       <div className="phone">
         {page === 'projections' ? (
-          <ProjectionsPage onBack={() => window.history.back()} />
+          <ProjectionsPage onBack={goBack} onMenu={openMenu} />
         ) : page === 'open-call' ? (
-          <OpenCallPage onBack={() => window.history.back()} />
+          <OpenCallPage onBack={goBack} onMenu={openMenu} />
         ) : page === 'tickets' ? (
-          <TicketsPage onBack={() => window.history.back()} />
+          <TicketsPage onBack={goBack} onMenu={openMenu} />
         ) : page === 'about' ? (
-          <AboutPage anchor={anchor} onBack={() => window.history.back()} />
+          <AboutPage anchor={anchor} onBack={goBack} onMenu={openMenu} />
         ) : page === 'plan' ? (
-          <PlanPage onBack={() => window.history.back()} />
+          <PlanPage onBack={goBack} onMenu={openMenu} />
         ) : venue ? (
-          <VenueDetail venue={venue} onBack={() => window.history.back()} />
+          <VenueDetail venue={venue} onBack={goBack} onMenu={openMenu} />
         ) : (
           <>
             <HeroDeck

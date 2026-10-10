@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
+import PageHeader from './PageHeader.jsx'
 import TowerSilhouette from './TowerSilhouette.jsx'
 import {
   ABOUT_HERO, QUOTE, INTRO, AT_A_GLANCE, SECTIONS, AWARDS, GREAT_TOWERS,
 } from '../data/about.js'
 import { useLang } from '../hooks/useLang.jsx'
 
-export default function AboutPage({ anchor, onBack }) {
+export default function AboutPage({ anchor, onBack, onMenu }) {
   const { t } = useLang()
   const tallest = Math.max(...GREAT_TOWERS.map((g) => g.metres))
 
@@ -27,15 +28,7 @@ export default function AboutPage({ anchor, onBack }) {
 
   return (
     <div className="about">
-      <header className="dhead">
-        <button type="button" className="dhead__back" onClick={onBack} aria-label={t('close')}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 4 L7 12 L15 20" />
-          </svg>
-        </button>
-        <h1 className="dhead__title">{t('about')}</h1>
-        <span className="dhead__spacer" aria-hidden="true" />
-      </header>
+      <PageHeader title={t('about')} onBack={onBack} onMenu={onMenu} />
 
       <div
         className="about__hero"

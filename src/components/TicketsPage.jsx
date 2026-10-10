@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import PageHeader from './PageHeader.jsx'
 import {
   TIERS, PACKAGES, BEFORE_YOU_BOOK, BOOKING_URL, usd,
 } from '../data/tickets.js'
@@ -9,7 +10,7 @@ import { useLang } from '../hooks/useLang.jsx'
  * ticket.atthetop.ae, which is where the actual transaction happens — the
  * operator's checkout, not a reimplementation of it.
  */
-export default function TicketsPage({ onBack }) {
+export default function TicketsPage({ onBack, onMenu }) {
   const { t } = useLang()
 
   useEffect(() => {
@@ -18,15 +19,7 @@ export default function TicketsPage({ onBack }) {
 
   return (
     <div className="tix">
-      <header className="dhead">
-        <button type="button" className="dhead__back" onClick={onBack} aria-label={t('close')}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 4 L7 12 L15 20" />
-          </svg>
-        </button>
-        <h1 className="dhead__title">{t('bookTickets')}</h1>
-        <span className="dhead__spacer" aria-hidden="true" />
-      </header>
+      <PageHeader title={t('bookTickets')} onBack={onBack} onMenu={onMenu} />
 
       <p className="tix__lede">
         Three observation decks at three heights. Pick the one you want, then

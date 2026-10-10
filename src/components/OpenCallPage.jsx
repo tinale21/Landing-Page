@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
+import PageHeader from './PageHeader.jsx'
 import TowerSilhouette from './TowerSilhouette.jsx'
 import { OPEN_CALL, openCallStatus } from '../data/events.js'
 import { useLang } from '../hooks/useLang.jsx'
 
-export default function OpenCallPage({ onBack }) {
+export default function OpenCallPage({ onBack, onMenu }) {
   const { t } = useLang()
   const status = openCallStatus()
 
@@ -13,15 +14,7 @@ export default function OpenCallPage({ onBack }) {
 
   return (
     <div className="fpage">
-      <header className="dhead">
-        <button type="button" className="dhead__back" onClick={onBack} aria-label={t('close')}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 4 L7 12 L15 20" />
-          </svg>
-        </button>
-        <h1 className="dhead__title">{t('pOpenCall')}</h1>
-        <span className="dhead__spacer" aria-hidden="true" />
-      </header>
+      <PageHeader title={t('pOpenCall')} onBack={onBack} onMenu={onMenu} />
 
       <div className="night">
         <TowerSilhouette climb={1} className="night__tower" />

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import PageHeader from './PageHeader.jsx'
 import TowerSilhouette from './TowerSilhouette.jsx'
 import { PROJECTIONS } from '../data/events.js'
 import { useLang } from '../hooks/useLang.jsx'
@@ -8,7 +9,7 @@ import { useLang } from '../hooks/useLang.jsx'
  * form, so rather than pad it out with facade specifications nobody publishes,
  * this sets out what the canvas is and what the form will ask for.
  */
-export default function ProjectionsPage({ onBack }) {
+export default function ProjectionsPage({ onBack, onMenu }) {
   const { t } = useLang()
 
   useEffect(() => {
@@ -17,15 +18,7 @@ export default function ProjectionsPage({ onBack }) {
 
   return (
     <div className="fpage">
-      <header className="dhead">
-        <button type="button" className="dhead__back" onClick={onBack} aria-label={t('close')}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15 4 L7 12 L15 20" />
-          </svg>
-        </button>
-        <h1 className="dhead__title">{t('pProjections')}</h1>
-        <span className="dhead__spacer" aria-hidden="true" />
-      </header>
+      <PageHeader title={t('pProjections')} onBack={onBack} onMenu={onMenu} />
 
       {/* Drawn rather than photographed: there is no projection photograph in
           this project, and a daytime shot of the tower would misrepresent it. */}

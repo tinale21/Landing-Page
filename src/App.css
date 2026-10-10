@@ -2559,3 +2559,28 @@
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
+
+/* Menu trigger in the sub-page header. The navigation bar lives in HeroDeck,
+   which only renders at the site root, so this is the only way into the menu
+   from a page. Dark bars: this header sits on paper, not on the hero photo. */
+.dhead__menu {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(21, 17, 13, 0.07);
+  cursor: pointer;
+}
+
+.dhead__menu span {
+  display: block;
+  width: 1.0625rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+}
