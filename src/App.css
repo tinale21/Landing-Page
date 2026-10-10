@@ -2406,3 +2406,149 @@
   line-height: 1.55;
   color: var(--ink-faint);
 }
+
+/* ---------- facade programme pages ---------- */
+.fpage {
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  background: var(--paper);
+}
+
+/* Night panel standing in for a projection photograph. The project has no
+   image of the lit facade, and a daytime shot would say the wrong thing. */
+.night {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 15rem;
+  margin: 0 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 75% at 72% 100%, rgba(201, 162, 75, 0.3), transparent 62%),
+    linear-gradient(to top, #141a30, #070a14);
+}
+
+.night__tower {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 0;
+  height: 88%;
+  width: auto;
+  opacity: 0.9;
+}
+
+.night__kicker {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 196, 106, 0.95);
+}
+
+.night__title {
+  position: relative;
+  margin: 0.375rem 0 0;
+  max-width: 11em;
+  font-family: var(--display);
+  font-size: 1.625rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.fpage__intro {
+  margin: 0;
+  padding: 1.25rem 1.5rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.fpage__note {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+
+.fpage__prize {
+  margin: 0.75rem 0 0;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.fpage__link {
+  display: inline-block;
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ---------- submission status ---------- */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  margin: 1.25rem 1.5rem 0;
+  padding: 0.375rem 0.6875rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status__dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Contrast checked against each background: both clear 4.5:1 for small text. */
+.status--open {
+  background: #e4f1e6;
+  color: #1f5c2e;
+}
+
+.status--upcoming,
+.status--closed {
+  background: #ecebe8;
+  color: #585249;
+}
+
+/* ---------- numbered steps ---------- */
+.steps {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  counter-reset: none;
+}
+
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6875rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.steps__n {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

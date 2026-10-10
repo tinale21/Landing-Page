@@ -75,8 +75,8 @@ export const MENU = [
     id: 'more',
     titleKey: 'mMore',
     items: [
-      { label: 'Events / Projections', href: `${SITE}/commercial-projections/` },
-      { label: 'Open Call', href: `${SITE}/open-call/` },
+      { label: 'Events / Projections', href: '#/projections' },
+      { label: 'Open Call', href: '#/open-call' },
       { label: 'FRQ', href: '#faq' },
     ],
   },

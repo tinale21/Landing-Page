@@ -11,6 +11,8 @@ import SearchOverlay from './components/SearchOverlay.jsx'
 import PlanPage from './components/PlanPage.jsx'
 import AboutPage from './components/AboutPage.jsx'
 import TicketsPage from './components/TicketsPage.jsx'
+import ProjectionsPage from './components/ProjectionsPage.jsx'
+import OpenCallPage from './components/OpenCallPage.jsx'
 import { useHashRoute } from './hooks/useHashRoute.js'
 import { CATEGORIES } from './data/venues.js'
 import './App.css'
@@ -48,7 +50,11 @@ export default function App() {
   return (
     <div className="frame">
       <div className="phone">
-        {page === 'tickets' ? (
+        {page === 'projections' ? (
+          <ProjectionsPage onBack={() => window.history.back()} />
+        ) : page === 'open-call' ? (
+          <OpenCallPage onBack={() => window.history.back()} />
+        ) : page === 'tickets' ? (
           <TicketsPage onBack={() => window.history.back()} />
         ) : page === 'about' ? (
           <AboutPage anchor={anchor} onBack={() => window.history.back()} />
