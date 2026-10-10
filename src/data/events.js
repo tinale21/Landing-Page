@@ -1,3 +1,6 @@
+const base = import.meta.env.BASE_URL
+const img = (f) => `${base}images/${f}`
+
 /**
  * Facade programmes: the commercial projection enquiry, and Emaar's Open Call
  * design competition.
@@ -11,6 +14,12 @@
  */
 
 export const PROJECTIONS = {
+  /* The fountain crowd, because the pitch this page makes is about audience:
+     who is standing there looking up when a projection runs. */
+  hero: img('fountain-crowd.jpg'),
+  heroAlt: 'Crowds watching the fountain show beneath Burj Khalifa',
+  /* Landscape and close to the panel's own ratio, so it barely crops. */
+  heroPos: 'center 58%',
   intro:
     'The facade of Burj Khalifa can be booked as a commercial canvas. A projection places a brand on the tallest building in the world, in front of the crowds gathered along the Dubai Fountain and across Downtown Dubai.',
   canvas: [
@@ -31,6 +40,11 @@ export const PROJECTIONS = {
 }
 
 export const OPEN_CALL = {
+  hero: img('tower-night.jpg'),
+  heroAlt: 'Burj Khalifa lit against the night sky',
+  /* Portrait into a short panel: centring the crop loses the lit tower, so
+     the focus sits just below the middle where the spire and body are. */
+  heroPos: 'center 52%',
   tagline: 'Light up Burj Khalifa with your art',
   kicker: 'A projection design competition',
   intro:

@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import PageHeader from './PageHeader.jsx'
-import TowerSilhouette from './TowerSilhouette.jsx'
 import { PROJECTIONS } from '../data/events.js'
 import { useLang } from '../hooks/useLang.jsx'
 
@@ -20,10 +19,16 @@ export default function ProjectionsPage({ onBack, onMenu }) {
     <div className="fpage">
       <PageHeader title={t('pProjections')} onBack={onBack} onMenu={onMenu} />
 
-      {/* Drawn rather than photographed: there is no projection photograph in
-          this project, and a daytime shot of the tower would misrepresent it. */}
-      <div className="night">
-        <TowerSilhouette climb={1} className="night__tower" />
+      <div
+        className="night"
+        style={{
+          backgroundImage: `url("${PROJECTIONS.hero}")`,
+          backgroundPosition: PROJECTIONS.heroPos,
+        }}
+        role="img"
+        aria-label={PROJECTIONS.heroAlt}
+      >
+        <span className="night__scrim" aria-hidden="true" />
         <p className="night__kicker">The world’s tallest canvas</p>
       </div>
 

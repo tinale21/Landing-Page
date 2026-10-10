@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import PageHeader from './PageHeader.jsx'
-import TowerSilhouette from './TowerSilhouette.jsx'
 import { OPEN_CALL, openCallStatus } from '../data/events.js'
 import { useLang } from '../hooks/useLang.jsx'
 
@@ -16,8 +15,16 @@ export default function OpenCallPage({ onBack, onMenu }) {
     <div className="fpage">
       <PageHeader title={t('pOpenCall')} onBack={onBack} onMenu={onMenu} />
 
-      <div className="night">
-        <TowerSilhouette climb={1} className="night__tower" />
+      <div
+        className="night"
+        style={{
+          backgroundImage: `url("${OPEN_CALL.hero}")`,
+          backgroundPosition: OPEN_CALL.heroPos,
+        }}
+        role="img"
+        aria-label={OPEN_CALL.heroAlt}
+      >
+        <span className="night__scrim" aria-hidden="true" />
         <p className="night__kicker">{OPEN_CALL.kicker}</p>
         <h2 className="night__title">{OPEN_CALL.tagline}</h2>
       </div>
