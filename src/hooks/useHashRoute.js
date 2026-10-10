@@ -16,13 +16,16 @@ export function useHashRoute() {
   }, [])
 
   const venue = route.match(/^\/venue\/([\w-]+)$/)
-  const page = route.match(/^\/([\w-]+)$/)
+  // A page may carry a second segment naming a block within it, so the menu
+  // can link to "Sustainability" and land on that part of the About page.
+  const page = route.match(/^\/([\w-]+)(?:\/([\w-]+))?$/)
   // A bare hash with no leading slash is an in-page section, not a route.
   const section = /^[\w-]+$/.test(route) ? route : null
 
   return {
     venueId: venue ? venue[1] : null,
     page: !venue && page ? page[1] : null,
+    anchor: !venue && page ? page[2] ?? null : null,
     section,
   }
 }

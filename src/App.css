@@ -1881,13 +1881,12 @@
   }
 }
 
-  }
-}
-
 /* ---------- plan your visit page ---------- */
 .planpg {
   min-height: 100vh;
-  padding-bottom: 3rem;
+  /* The last topic's fact table ran close to the footer band. Sections are
+     2.25rem apart, so the page-end gap has to clear that to read as an end. */
+  padding-bottom: 5rem;
 }
 
 .planpg__hero {

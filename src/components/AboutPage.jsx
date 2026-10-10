@@ -5,13 +5,25 @@ import {
 } from '../data/about.js'
 import { useLang } from '../hooks/useLang.jsx'
 
-export default function AboutPage({ onBack }) {
+export default function AboutPage({ anchor, onBack }) {
   const { t } = useLang()
   const tallest = Math.max(...GREAT_TOWERS.map((g) => g.metres))
 
+  // The menu links at individual blocks, so honour the second path segment.
+  // Waiting a frame lets the sections lay out before we measure one.
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (!anchor) {
+      window.scrollTo(0, 0)
+      return
+    }
+    const id = requestAnimationFrame(() => {
+      document.getElementById(`sec-${anchor}`)?.scrollIntoView({
+        behavior: 'auto',
+        block: 'start',
+      })
+    })
+    return () => cancelAnimationFrame(id)
+  }, [anchor])
 
   return (
     <div className="about">
@@ -54,7 +66,7 @@ export default function AboutPage({ onBack }) {
       </section>
 
       {SECTIONS.map((sec) => (
-        <section className="topic" key={sec.id} aria-labelledby={`about-${sec.id}`}>
+        <section className="topic" id={`sec-${sec.id}`} key={sec.id} aria-labelledby={`about-${sec.id}`}>
           <div
             className="topic__img"
             style={{ backgroundImage: `url("${sec.src}")` }}
@@ -73,7 +85,7 @@ export default function AboutPage({ onBack }) {
       ))}
 
       {/* Height compared, drawn to scale rather than described. */}
-      <section className="topic" aria-labelledby="about-towers">
+      <section className="topic" id="sec-towers" aria-labelledby="about-towers">
         <h2 className="topic__title" id="about-towers">
           Great Towers of the World
         </h2>
@@ -98,7 +110,7 @@ export default function AboutPage({ onBack }) {
         </ul>
       </section>
 
-      <section className="topic" aria-labelledby="about-awards">
+      <section className="topic" id="sec-awards" aria-labelledby="about-awards">
         <h2 className="topic__title" id="about-awards">
           Awards
         </h2>

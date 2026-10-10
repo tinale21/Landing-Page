@@ -28,7 +28,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const { venueId, page, section } = useHashRoute()
+  const { venueId, page, anchor, section } = useHashRoute()
   const venue = venueId ? findVenue(venueId) : null
 
   // A bare hash such as #history routes home. The browser's own scroll-to-
@@ -51,7 +51,7 @@ export default function App() {
         {page === 'tickets' ? (
           <TicketsPage onBack={() => window.history.back()} />
         ) : page === 'about' ? (
-          <AboutPage onBack={() => window.history.back()} />
+          <AboutPage anchor={anchor} onBack={() => window.history.back()} />
         ) : page === 'plan' ? (
           <PlanPage onBack={() => window.history.back()} />
         ) : venue ? (
