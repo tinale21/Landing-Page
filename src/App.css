@@ -2670,10 +2670,11 @@
   color: var(--ink);
 }
 
-.dmap__svg {
+.dmap__img {
   display: block;
   width: 100%;
   height: auto;
+  background: #eceae5;
 }
 
 .dmap__foot {
@@ -2700,6 +2701,12 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #6b5425;
+}
+
+.dmap__attr {
+  margin: 0.5rem 0 0;
+  font-size: 0.6875rem;
+  color: var(--ink-faint);
 }
 
 .dmap__cta .mrow__out {

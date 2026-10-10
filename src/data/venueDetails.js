@@ -14,6 +14,9 @@
  *            renovation.
  * `place`  — what to search for in Google Maps. Most venues are inside the
  *            tower and resolve to it; the nearby ones have their own pin.
+ * `map`    — the map image for that pin, from public/images/. Only the four
+ *            venues that are not inside the tower need one; everything else
+ *            falls back to the tower's.
  */
 
 const CLOSED = { note: 'Temporarily closed for renovation.' }
@@ -128,6 +131,7 @@ export const DETAILS = {
 
   // ---- Experiences Nearby ------------------------------------------------
   'dubai-fountain': {
+    map: 'map-fountain.jpg',
     site: { url: 'https://thedubaimall.com/en/entertain-detail/the-dubai-fountain-1', host: 'thedubaimall.com' },
     place: 'The Dubai Fountain, Downtown Dubai',
     level: 'Burj Lake, Downtown Dubai',
@@ -141,6 +145,7 @@ export const DETAILS = {
     },
   },
   'dubai-opera': {
+    map: 'map-opera.jpg',
     site: { url: 'https://www.dubaiopera.com/en-US/home', host: 'dubaiopera.com' },
     place: 'Dubai Opera, Downtown Dubai',
     level: 'Sheikh Mohammed bin Rashid Blvd',
@@ -149,6 +154,7 @@ export const DETAILS = {
     hours: { note: 'Opening times vary by performance.' },
   },
   'sky-views': {
+    map: 'map-skyviews.jpg',
     site: { url: 'https://www.skyviewsdubai.com/', host: 'skyviewsdubai.com' },
     place: 'Sky Views Observatory, Address Sky View, Dubai',
     level: 'Address Sky View, Downtown Dubai',
@@ -162,6 +168,7 @@ export const DETAILS = {
     },
   },
   'dubai-mall': {
+    map: 'map-mall.jpg',
     site: { url: 'https://thedubaimall.com/', host: 'thedubaimall.com' },
     place: 'The Dubai Mall, Downtown Dubai',
     level: 'Downtown Dubai',

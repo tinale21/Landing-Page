@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import PageHeader from './PageHeader.jsx'
-import MiniMap from './MiniMap.jsx'
 import { DETAILS, SAMPLE_REVIEWS } from '../data/venueDetails.js'
+
+const mapImg = (f) => `${import.meta.env.BASE_URL}images/${f}`
 
 const TABS = ['About', 'Hours', 'Reviews']
 
@@ -208,7 +209,17 @@ export default function VenueDetail({ venue, onBack, onMenu }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <MiniMap />
+          {/* Below the fold on every detail page, so never fetched unless the
+              visitor scrolls to it. */}
+          <img
+            className="dmap__img"
+            src={mapImg(d.map ?? 'map-burj.jpg')}
+            alt={`Map showing ${place}`}
+            width="900"
+            height="520"
+            loading="lazy"
+            decoding="async"
+          />
           <span className="dmap__foot">
             <span className="dmap__place">{place}</span>
             <span className="dmap__cta">
@@ -217,6 +228,10 @@ export default function VenueDetail({ venue, onBack, onMenu }) {
             </span>
           </span>
         </a>
+        {/* Google requires the attribution to travel with the imagery. The
+            screenshots are cropped past the bar that carries it, so it is
+            reproduced here instead of dropped. */}
+        <p className="dmap__attr">Map data ©2026 Google</p>
       </section>
     </div>
   )
