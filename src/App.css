@@ -2468,6 +2468,13 @@
   color: var(--ink-soft);
 }
 
+/* .tix__btn zeroes its own top margin for the tickets page's closing block,
+   so these pages set the spacing themselves instead of inheriting that
+   context and landing flush against the text above. */
+.fpage .tix__btn {
+  margin-top: 2rem;
+}
+
 .fpage__note {
   margin: 1rem 0 0;
   font-size: 0.8125rem;
