@@ -31,6 +31,37 @@ const Row = ({ item, deep, onNavigate }) => {
 export default function MainMenu({ open, onClose }) {
   const { t } = useLang()
   const closeRef = useRef(null)
+  const panelRef = useRef(null)
+
+  /**
+   * Closing the menu resets it: every group and sub-group collapses, so the
+   * next visit starts from the top rather than from wherever the last one
+   * left off.
+   *
+   * The reset waits for the slide-out to finish, or the groups visibly snap
+   * shut while the panel is still on screen. Listening for the transition
+   * rather than guessing a duration keeps this from drifting if the CSS
+   * timing changes.
+   */
+  useEffect(() => {
+    const panel = panelRef.current
+    if (!panel || open) return
+
+    const collapse = () => {
+      for (const d of panel.querySelectorAll('details[open]')) d.open = false
+    }
+    const onEnd = (e) => {
+      if (e.target === panel && e.propertyName === 'transform') collapse()
+    }
+
+    panel.addEventListener('transitionend', onEnd)
+    return () => {
+      panel.removeEventListener('transitionend', onEnd)
+      // Reopened before the slide-out finished: collapse now so the panel
+      // never comes back carrying the previous visit's open groups.
+      collapse()
+    }
+  }, [open])
 
   // Escape closes, and the page behind must not scroll while the panel is up.
   useEffect(() => {
@@ -82,7 +113,7 @@ export default function MainMenu({ open, onClose }) {
           into the grey beside the column on a wide screen, instead of
           disappearing off the edge of the "device". */}
       <div className="menu__clip">
-        <div className="menu__panel" role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="menu__panel" ref={panelRef} role="dialog" aria-modal="true" aria-label="Menu">
         <div className="menu__head">
           <span className="menu__brand">Burj Khalifa</span>
           <button
