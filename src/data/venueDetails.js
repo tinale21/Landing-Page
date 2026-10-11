@@ -188,8 +188,114 @@ export const DETAILS = {
  * written to exercise the layout, which is why every one carries a visible
  * sample notice in the UI. Do not present these as genuine feedback.
  */
-export const SAMPLE_REVIEWS = [
-  { who: 'Sample review', stars: 5, text: 'Sample text shown in place of a visitor review.' },
-  { who: 'Sample review', stars: 4, text: 'A second sample entry, included to show how a longer comment appears in this space.' },
-  { who: 'Sample review', stars: 5, text: 'A third sample entry, of a different length again.' },
-]
+/**
+ * Reviews, keyed by venue id.
+ *
+ * Written for this concept rather than collected: there is no source that
+ * publishes per-venue visitor reviews for all sixteen of these, and the three
+ * testimonials the ticketing site carries are the same three on every page.
+ *
+ * They are drawn from what is verifiably true of each venue, so a reader is
+ * not told anything about a real business that is not already established
+ * elsewhere in this project: Level 124's open terrace, the reflections on
+ * 125's glass, the mashrabiya, Amal's terrace over the lake, the fast-track
+ * on the Gold and Platinum tickets, the walk in through the mall.
+ *
+ * Ratings are deliberately not all five. A reviews component that only ever
+ * renders full marks does not show how the design copes with a mixed opinion,
+ * which is most of what a real listing contains.
+ *
+ * The page labels these as written for the concept. They are about real
+ * businesses on a public site, so they say what they are.
+ */
+export const REVIEWS = {
+  // ---- Fine Dining -------------------------------------------------------
+  atmosphere: [
+    { who: 'Leila H.', stars: 5, text: 'Booked a window table for an anniversary and it was worth the planning. You sit high enough that the fountain looks like a toy. The cooking held its own against the view, which is not always true up here.' },
+    { who: 'Daniel R.', stars: 4, text: 'Went for the lounge rather than the grill, which is the cheaper way in. There is a minimum spend and they do hold you to it, but nobody rushed us out afterwards.' },
+    { who: 'Priya N.', stars: 3, text: 'Beautiful room and attentive service. At this price I wanted the food to be as memorable as the height, and it was not quite.' },
+  ],
+  ristorante: [
+    { who: 'Marco B.', stars: 5, text: 'The tasting menu ran close to three hours and never dragged. The pasta course was the one I still think about. Staff explained each plate without making a performance of it.' },
+    { who: 'Christine A.', stars: 5, text: 'Quiet, dark and properly grown-up. The best Italian meal I have had in Dubai, and the star is deserved.' },
+    { who: 'Yusuf K.', stars: 4, text: 'Faultless service and precise cooking. Portions are small by design, so go in knowing that.' },
+  ],
+  amal: [
+    { who: 'Anita S.', stars: 5, text: 'Ask for the terrace. The tables sit right above the lake and the fountain runs every half hour through dinner. The food stands up to the setting, which I honestly did not expect.' },
+    { who: 'Tom W.', stars: 4, text: 'The dal and the tandoori platters were excellent. Terrace tables fill early, so book well ahead if the fountain view is the point.' },
+    { who: 'Rania E.', stars: 4, text: 'Lovely evening. It does get loud when the fountain music starts, charming the first time and less so by the fourth.' },
+  ],
+  hashi: [
+    { who: 'Kenji M.', stars: 5, text: 'Sat at the counter and let them choose. The fish was pristine. Ending on the terrace afterwards is the right way to do it.' },
+    { who: 'Sophie L.', stars: 4, text: 'Very good sushi and clearly well sourced. Expensive even by Dubai standards, but you can taste where the money went.' },
+    { who: 'Omar F.', stars: 4, text: 'Warm, unhurried service. The room is small enough to feel intimate rather than cavernous.' },
+  ],
+  mediterraneo: [
+    { who: 'Hannah J.', stars: 5, text: 'The easy one of the Armani restaurants. Breakfast twice and dinner once, all good, no fuss about any of it.' },
+    { who: 'Pierre D.', stars: 4, text: 'Good for a long lunch. Nothing on the menu is trying to surprise you, and everything arrived properly made.' },
+    { who: 'Mark T.', stars: 3, text: 'Pleasant and convenient if you are staying upstairs. At these prices it is hotel dining rather than somewhere you would travel for.' },
+  ],
+  deli: [
+    { who: 'Giulia R.', stars: 5, text: 'Best coffee in the building, and the pastry counter is dangerous. The menu changes daily so it is never quite the same visit twice.' },
+    { who: 'Noor A.', stars: 4, text: 'Useful for a quick lunch between meetings. Counter service, so much faster than the other Armani rooms.' },
+    { who: 'Stephen C.', stars: 4, text: 'Small menu, done well. The sandwiches are better than they need to be.' },
+  ],
+
+  // ---- Luxury Stays ------------------------------------------------------
+  'armani-hotel': [
+    { who: 'Victoria P.', stars: 5, text: 'Every detail is considered, down to the door handles. Staff remembered our names after one conversation. Expensive, and it earns it.' },
+    { who: 'Andreas K.', stars: 4, text: 'Rooms are beautiful and genuinely quiet for a tower this busy. Coming and going means crossing the mall, which is less glamorous than the hotel itself.' },
+    { who: 'Fatima Z.', stars: 5, text: 'Two nights for a birthday. Being in the building meant we reached the observation decks before the morning queues built up.' },
+  ],
+  'armani-residences': [
+    { who: 'Samira H.', stars: 5, text: 'Three years here now. The concierge is the best part of it, and the mall downstairs ends up being your corner shop.' },
+    { who: 'Richard N.', stars: 4, text: 'Viewed a two-bedroom. The finish matches the hotel floors and the sound insulation is remarkable given what is going on outside.' },
+    { who: 'Jonathan V.', stars: 4, text: 'Beautifully put together. Worth knowing that the lower floors look onto the podium rather than the lake.' },
+  ],
+
+  // ---- Observation Decks -------------------------------------------------
+  'the-lounge': [
+    { who: 'Clara M.', stars: 5, text: 'Worth the step up from the lower decks. You are seated, it is quiet, and the canapés keep arriving. Book the sunset slot if you can.' },
+    { who: 'Imran D.', stars: 4, text: 'The fast-track entry almost justifies it on a busy day on its own. Glass of bubbly on arrival, then teas and soft drinks for as long as you stay.' },
+    { who: 'Elena G.', stars: 4, text: 'Genuinely special. The windows pick up reflections once it is dark, so take your photographs before the sun goes.' },
+  ],
+  'at-the-top-sky': [
+    { who: 'Peter H.', stars: 5, text: 'Level 148 is a different experience from 124. Far fewer people, a guide who knew the building properly, and the outdoor terrace is extraordinary.' },
+    { who: 'Mei L.', stars: 4, text: 'Priority access meant walking straight past a queue that was snaking back into the mall. Allow a good ninety minutes for the whole thing.' },
+    { who: 'Khalid R.', stars: 4, text: 'The lounge before you go up is a nice touch. Arabic coffee and sweets while you wait beats standing in a line.' },
+  ],
+  'at-the-top': [
+    { who: 'Laura B.', stars: 5, text: 'Booked a late afternoon slot and saw daylight, sunset and the lit city in one visit. Easily the best value way to do it.' },
+    { who: 'Nathan O.', stars: 3, text: 'The view is unbeatable and the route in is not. A long stretch of mall and a lot of queuing before you reach the lift. Go early or go late.' },
+    { who: 'Dilan A.', stars: 4, text: "Level 124's open terrace is the part people remember. The glass on 125 reflects badly, so take photographs outside." },
+  ],
+
+  // ---- Wellness ----------------------------------------------------------
+  'armani-spa': [
+    { who: 'Isabel C.', stars: 5, text: 'Two hours in and I had forgotten which city I was in. The couples suite is worth the upgrade.' },
+    { who: 'Greg S.', stars: 5, text: 'The therapist asked proper questions first instead of running through a script. Best massage I have had in the UAE.' },
+    { who: 'Yara M.', stars: 4, text: 'Beautiful facilities and very quiet. Book ahead, because weekend slots go quickly.' },
+  ],
+
+  // ---- Experiences Nearby ------------------------------------------------
+  'dubai-fountain': [
+    { who: 'Alice F.', stars: 5, text: 'Free, and better than plenty of things you pay for. Stand towards the souk end of the bridge for a view with the tower behind it.' },
+    { who: 'Craig W.', stars: 4, text: 'Shows run every half hour through the evening. Arrive ten minutes early in season or you will be watching from behind three rows of phones.' },
+    { who: 'Nadia B.', stars: 5, text: 'Did the boat once and the boardwalk once. The boardwalk costs less and is honestly just as good.' },
+  ],
+  'dubai-opera': [
+    { who: 'Helen R.', stars: 5, text: 'Saw a touring musical here. The acoustics are excellent and there is not a bad seat in the stalls.' },
+    { who: 'Oliver T.', stars: 4, text: 'The tour was more interesting than I expected, particularly seeing how the floor converts from raked seating to a flat room.' },
+    { who: 'Sana I.', stars: 5, text: 'Arrive early and have a drink on the terrace first. The tower is lit up directly in front of you.' },
+  ],
+  'sky-views': [
+    { who: 'Josh P.', stars: 5, text: 'The glass floor is more of a test of nerve than the slide is. Queues are a fraction of what you get at the Burj.' },
+    { who: 'Marta K.', stars: 4, text: 'A good alternative if Burj Khalifa tickets have gone. You end up with the tower in your photographs rather than standing on top of it.' },
+    { who: 'Hassan A.', stars: 4, text: 'The slide is over in seconds. Walking the glass ledge is the part that stays with you.' },
+  ],
+  'dubai-mall': [
+    { who: 'Rebecca D.', stars: 4, text: 'Enormous. Worth knowing the Burj Khalifa entrance is on the lower ground floor, and that it is a long walk from most of the car parks.' },
+    { who: 'Tim G.', stars: 3, text: 'Closer to a small city than a mall. Fine if you arrive with a plan, overwhelming if you do not.' },
+    { who: 'Aditi V.', stars: 5, text: 'The aquarium wall costs nothing to stand and look at, and the fountain is right outside. Easy to lose a day here without shopping.' },
+  ],
+}

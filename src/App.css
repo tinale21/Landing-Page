@@ -2718,3 +2718,9 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.revs__note {
+  margin: 0.875rem 0 0;
+  font-size: 0.6875rem;
+  color: var(--ink-faint);
+}

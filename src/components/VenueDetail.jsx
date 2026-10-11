@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import PageHeader from './PageHeader.jsx'
-import { DETAILS, SAMPLE_REVIEWS } from '../data/venueDetails.js'
+import { DETAILS, REVIEWS } from '../data/venueDetails.js'
 
 const mapImg = (f) => `${import.meta.env.BASE_URL}images/${f}`
 
@@ -89,6 +89,7 @@ export default function VenueDetail({ venue, onBack, onMenu }) {
     (/burj khalifa/i.test(venue.name)
       ? `${venue.name}, Downtown Dubai`
       : `${venue.name}, Burj Khalifa, Downtown Dubai`)
+  const reviews = REVIEWS[venue.id] ?? []
   const about = d.about ?? venue.blurb
   const isLong = about.length > 180
   const shown = !isLong || expanded ? about : about.slice(0, 180).trimEnd() + '… '
@@ -188,8 +189,8 @@ export default function VenueDetail({ venue, onBack, onMenu }) {
 
         <section className="dpane" role="tabpanel" aria-label="Reviews">
           <ul className="revs" role="list">
-            {SAMPLE_REVIEWS.map((r, i) => (
-              <li className="rev" key={i}>
+            {reviews.map((r) => (
+              <li className="rev" key={r.who}>
                 <div className="rev__top">
                   <span className="rev__who">{r.who}</span>
                   <Stars n={r.stars} />
@@ -198,6 +199,9 @@ export default function VenueDetail({ venue, onBack, onMenu }) {
               </li>
             ))}
           </ul>
+          {/* These are about real businesses on a publicly reachable page, so
+              they say what they are rather than passing as collected. */}
+          <p className="revs__note">Reviews written for this concept design.</p>
         </section>
       </div>
 
