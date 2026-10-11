@@ -205,8 +205,9 @@ export const DETAILS = {
  * renders full marks does not show how the design copes with a mixed opinion,
  * which is most of what a real listing contains.
  *
- * The page labels these as written for the concept. They are about real
- * businesses on a public site, so they say what they are.
+ * Not shown as such on the page: the label was removed at the designer's
+ * request. Recorded here so anyone reading the source knows these are
+ * written copy and not collected visitor feedback.
  */
 export const REVIEWS = {
   // ---- Fine Dining -------------------------------------------------------

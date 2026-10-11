@@ -70,9 +70,14 @@ than sixteen sets written for the venues they describe.
 - The disclosure line renders.
 - Build clean: 239.78 kB / 79.99 kB gzipped.
 
-## Still outstanding
+## Follow-up, same session
 
-- The review disclosure is a judgement call the user may want reversed.
+The line was removed at the designer's request immediately after. Their call,
+and it is made. The reviews themselves are unchanged; only the label is gone.
+The note explaining what they are now lives in the source comment in
+`venueDetails.js`, where anyone reading the data will find it.
+
+## Still outstanding
 - The watermark on `fountain-crowd.jpg` is live on the Projections page.
 - The search overlay stays open across route changes.
 - Map thumbnail labels are small at the card's width.

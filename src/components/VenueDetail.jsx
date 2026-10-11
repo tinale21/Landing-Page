@@ -199,9 +199,6 @@ export default function VenueDetail({ venue, onBack, onMenu }) {
               </li>
             ))}
           </ul>
-          {/* These are about real businesses on a publicly reachable page, so
-              they say what they are rather than passing as collected. */}
-          <p className="revs__note">Reviews written for this concept design.</p>
         </section>
       </div>
 
