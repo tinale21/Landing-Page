@@ -10,24 +10,37 @@ export function goToFaqGroup(id) {
 }
 
 /**
- * How many history entries deep into this site we are.
+ * Where we are in this site's own history.
  *
- * Stamped onto each history entry so going back can tell "there is a page of
- * ours behind this" from "this page was opened directly". Reading
+ * `depth` is stamped onto each history entry, so going back can tell "there is
+ * a page of ours behind this" from "this page was opened directly". Reading
  * history.length cannot make that distinction, since it counts entries from
  * before the user arrived.
+ *
+ * `trail` records which route sat at each depth, which is what lets goBack
+ * find the landing page rather than the previous sub-page.
  */
 let depth = 0
+const trail = []
+
+const routeNow = () => window.location.hash.replace(/^#/, '')
+
+/**
+ * A bare hash with no leading slash is a section of the landing page, not a
+ * route of its own, so `#history` counts as being home.
+ */
+const isLanding = (route) => route === '' || /^[\w-]+$/.test(route)
 
 function stampDepth() {
   const state = window.history.state
   if (state && typeof state.bkDepth === 'number') {
     // An entry we have already seen: returning to it, not creating one.
     depth = state.bkDepth
-    return
+  } else {
+    depth += 1
+    window.history.replaceState({ ...(state ?? {}), bkDepth: depth }, '')
   }
-  depth += 1
-  window.history.replaceState({ ...(state ?? {}), bkDepth: depth }, '')
+  trail[depth] = routeNow()
 }
 
 if (typeof window !== 'undefined') {
@@ -36,14 +49,28 @@ if (typeof window !== 'undefined') {
 }
 
 /**
- * Leave a sub-page.
+ * Leave a sub-page and return to the landing page.
  *
- * history.back() on its own walks out of the site when the page was opened
- * from a link, a bookmark or a reload, because the entry behind it belongs to
- * somewhere else. Going back is only right when one of our own pages is there;
- * otherwise close to the landing page.
+ * Not the same as going back one step. Opening two pages in a row from the
+ * menu puts a sub-page behind a sub-page, and stepping back one lands on the
+ * first of them rather than on the site. The control reads as "close this
+ * page", so it closes to the landing page however many sub-pages deep it is.
+ *
+ * Where the landing page is genuinely behind us in history, we travel to that
+ * entry rather than assigning the hash, because that restores the scroll
+ * position the visitor left: back from a venue returns them to the same card
+ * in the carousel, not to the top of the page.
+ *
+ * Falls back to assigning the hash when the landing page is not in our
+ * history at all, which is the case when a sub-page was opened directly from
+ * a link, a bookmark or a reload.
  */
 export function goBack() {
-  if (depth > 1) window.history.back()
-  else window.location.hash = ''
+  for (let d = depth - 1; d >= 1; d -= 1) {
+    if (trail[d] !== undefined && isLanding(trail[d])) {
+      window.history.go(d - depth)
+      return
+    }
+  }
+  window.location.hash = ''
 }
